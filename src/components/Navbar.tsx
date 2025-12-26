@@ -21,9 +21,9 @@ const Navbar = ({ activeSection }: NavbarProps) => {
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
     { id: 'experience', label: 'Experience' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'skills', label: 'Skills' },
     { id: 'contact', label: 'Contact' },
   ]
 
@@ -49,7 +49,7 @@ const Navbar = ({ activeSection }: NavbarProps) => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Portfolio
+          S Kulkarni
         </motion.div>
 
         <div className="navbar-menu">

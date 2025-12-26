@@ -31,7 +31,10 @@ const Skills = () => {
         { name: 'JavaScript', icon: SiJavascript, level: 90 },
         { name: 'TypeScript', icon: SiTypescript, level: 88 },
         { name: 'Java', icon: HiCode, level: 85 },
+        { name: 'C', icon: HiCode, level: 80 },
         { name: 'C++', icon: HiCode, level: 80 },
+        { name: 'R', icon: HiCode, level: 75 },
+        { name: 'MatLab', icon: HiCode, level: 75 },
       ],
     },
     {
@@ -39,6 +42,11 @@ const Skills = () => {
       skills: [
         { name: 'PyTorch', icon: SiPytorch, level: 90 },
         { name: 'TensorFlow', icon: SiTensorflow, level: 88 },
+        { name: 'RAG', icon: HiChip, level: 90 },
+        { name: 'LLM Applications', icon: HiChip, level: 88 },
+        { name: 'Multimodal Retrieval', icon: HiChip, level: 85 },
+        { name: 'Embeddings', icon: HiChip, level: 90 },
+        { name: 'Prompt Engineering', icon: HiChip, level: 88 },
         { name: 'LangChain', icon: HiChip, level: 85 },
         { name: 'Hugging Face', icon: HiChip, level: 85 },
       ],
@@ -56,7 +64,7 @@ const Skills = () => {
       skills: [
         { name: 'AWS', icon: SiAmazonaws, level: 85 },
         { name: 'GCP', icon: HiCloud, level: 85 },
-        { name: 'Azure', icon: HiCloud, level: 80 },
+        { name: 'Azure Services', icon: HiCloud, level: 80 },
         { name: 'Docker', icon: SiDocker, level: 88 },
       ],
     },
@@ -66,7 +74,9 @@ const Skills = () => {
         { name: 'PostgreSQL', icon: SiPostgresql, level: 88 },
         { name: 'MongoDB', icon: SiMongodb, level: 85 },
         { name: 'Redis', icon: SiRedis, level: 90 },
+        { name: 'Pinecone', icon: HiCode, level: 85 },
         { name: 'Kafka', icon: SiApachekafka, level: 80 },
+        { name: 'n8n', icon: HiCode, level: 75 },
         { name: 'Git', icon: SiGit, level: 95 },
       ],
     },
@@ -129,7 +139,6 @@ const Skills = () => {
                     <motion.div
                       key={skillIndex}
                       className="skill-item"
-                      whileHover={{ scale: 1.05, y: -5 }}
                     >
                       <div className="skill-icon">
                         <Icon />

@@ -9,27 +9,32 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Summer Intern (AI Engineer Intern)',
+      title: 'AI Engineer Intern',
       company: 'Quinnox (Qyrus)',
+      companyUrl: 'https://www.quinnox.com',
+      logo: '/qyrus-logo.jpeg',
       location: 'Chicago, Illinois',
       period: 'Jul 2025 - Sep 2025',
       description: [
-        'Architected and deployed a retrieval augmented generation (RAG) automation pipeline using Pinecone, Redis and FastAPI, scaling a vector index to 220K+ vectors and building a dashboard to monitor retrieval and matching scores (text + image + rerank) achieving a relevance score of ~80%',
-        'Designed and implemented a multi-modal embedding and retrieval framework (120K+ text entries plus 100K+ images) using CLIP, Cohere and ReRank v3, improving precision at top 5 by 22% and handling throughput of 300+ vectors per minute',
-        'Developed a fault tolerant ingestion architecture on AWS (SQS with pre-batcher, asynchronous queue workers and upserters) to support high-volume embedding processing and ensure reliable scaling of tens of thousands of embeddings per hour for production-grade AI workflows',
+        'Built and deployed a RAG system using Python, FastAPI, Pinecone, and Redis, scaling to 220K+ embeddings and enabling multimodal retrieval (text + image + rerank).',
+        'Designed, tuned, and evaluated multimodal embedding and reranking pipelines using CLIP, Cohere, and ReRank v3, benchmarking with precision@K and recall@K, improving precision@5 by 22% while sustaining 300+ vectors/min throughput.',
+        'Integrated LLM-based generation with retrieval, implementing prompt templates, citation-style grounding, and fallback logic, improving response quality by ~15% while balancing latency and cost for GenAI workflows.',
+        'Implemented a fault-tolerant data ingestion and inference pipeline on AWS (SQS, asynchronous workers, batch upserts) to process tens of thousands of embeddings/hour, enabling scalable and reliable AI systems.',
       ],
       type: 'work',
     },
     {
       title: 'Software Development Intern',
       company: 'Pcloudy (by Opkey)',
+      companyUrl: 'https://www.pcloudy.com',
+      logo: '/pcloudy-logo.jpeg',
       location: 'Bangalore, India',
       period: 'Jun 2023 - Jul 2024',
       description: [
-        'Developed the MVP of Qpilot.AI on the Pcloudy platform, a live test automation application for script generation and self healing automation used by over 1,200 OEM device combinations; this initiative laid the foundation for its full production release',
-        'Built and launched a script-generation framework across 1,200+ OEM device configurations; recorded a 78% success rate on scripted executions, introduced self-healing modules to minimize failures and slashed test execution time by ~90%',
-        'Designed and integrated a real time log parsing dashboard capable of processing 100K+ log lines in under 3 minutes, surfacing error patterns and recommended fixes to end users and embedding self healing modules that reduced manual intervention',
-        'Architected a scalable microservices architecture using Flask, Python, Redis, LangChain, AutoGen, Docker and AWS, collaborating within a team of four and reporting directly to the CEO while delivering CI/CD enabled releases, version control workflows and cloud native deployment pipelines',
+        'Developed the MVP of Qpilot.AI, a test-automation platform for script generation (template + heuristic-based) and self-healing execution, supporting runs across 1,200+ OEM device configurations and contributing to production release.',
+        'Built an automated script-generation pipeline achieving 78% execution success, integrating self-healing recovery steps that reduced end-to-end test time by ~90%.',
+        'Optimized a real-time log analytics and classification service to process ~33K events/min, accelerating failure triage and reducing manual debugging.',
+        'Built and deployed Python/Flask microservices and backend APIs with Redis, Docker, and AWS, shipping CI/CD releases and integrating LangChain/AutoGen for automated troubleshooting and workflow orchestration.',
       ],
       type: 'work',
     },
@@ -89,8 +94,33 @@ const Experience = () => {
               </div>
               <div className="experience-content">
                 <div className="experience-header">
-                  <h3 className="experience-title">{exp.title}</h3>
-                  <span className="experience-company">{exp.company}</span>
+                  <div className="experience-title-logo">
+                    {exp.logo && (
+                      <a
+                        href={exp.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="experience-logo-link"
+                      >
+                        <img
+                          src={exp.logo}
+                          alt={`${exp.company} logo`}
+                          className="experience-logo"
+                        />
+                      </a>
+                    )}
+                    <div className="experience-title-wrapper">
+                      <h3 className="experience-title">{exp.title}</h3>
+                      <a
+                        href={exp.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="experience-company"
+                      >
+                        {exp.company}
+                      </a>
+                    </div>
+                  </div>
                 </div>
                 <div className="experience-meta">
                   <span className="experience-location">

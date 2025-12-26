@@ -51,7 +51,7 @@ const Contact = () => {
     {
       icon: HiLocationMarker,
       label: 'Location',
-      value: 'Available for opportunities',
+      value: 'Riverside, CA',
       link: null,
     },
   ]

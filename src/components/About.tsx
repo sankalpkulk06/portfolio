@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { HiUser, HiAcademicCap, HiHeart } from 'react-icons/hi'
+import { HiChip, HiDatabase, HiServer, HiSparkles } from 'react-icons/hi'
+import { profile } from '../data/portfolioData'
 
 const About = () => {
   const ref = useRef(null)
@@ -37,11 +38,10 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="section-header"
         >
-          <span className="section-tag">About Me</span>
-          <h2 className="section-title">Get to Know Me</h2>
+          <span className="section-tag">About</span>
+          <h2 className="section-title">AI Engineer with Backend Systems Depth</h2>
           <p className="section-description">
-            A passionate developer with a love for creating exceptional digital
-            experiences
+            I design and ship production-oriented AI systems that combine reliable backend architecture with practical LLM workflows.
           </p>
         </motion.div>
 
@@ -52,88 +52,49 @@ const About = () => {
           animate={isInView ? 'visible' : 'hidden'}
         >
           <motion.div className="about-text" variants={itemVariants}>
-            <h3>Who I Am</h3>
+            <h3>Who I am</h3>
             <p>
-              I'm Sankalp Naveenachandra Kulkarni, an AI Engineer with an MS in Computer Science and hands-on experience building, evaluating, 
-              and deploying production-scale AI systems. I specialize in retrieval-augmented generation (RAG), multimodal embedding pipelines, 
-              and scalable ML infrastructure using Python, PyTorch, FastAPI, and Redis.
+              I'm {profile.name}, an AI Engineer focused on backend AI systems, retrieval pipelines, and production APIs. My work sits at the
+              intersection of LLM applications and system reliability.
             </p>
             <p>
-              I've built cloud-native AI solutions processing 20K+ embeddings per hour, with experience in model evaluation, data pipelines, 
-              and deployment on AWS and GCP. My work focuses on creating intelligent systems that make a real impact, from law enforcement 
-              automation tools to scalable RAG systems that improve precision and throughput.
+              I prioritize applied AI impact over demos: measurable retrieval quality, scalable data workflows, and systems teams can operate with
+              confidence in production.
             </p>
-            <div className="about-stats">
+            <div className="about-stats about-identity">
               <div className="stat">
-                <span className="stat-number">220K+</span>
-                <span className="stat-label">Embeddings Processed</span>
+                <span className="stat-number">{profile.education}</span>
+                <span className="stat-label">Academic foundation</span>
               </div>
               <div className="stat">
-                <span className="stat-number">22%</span>
-                <span className="stat-label">Precision Improvement</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">300+</span>
-                <span className="stat-label">Vectors/Min Throughput</span>
+                <span className="stat-number">{profile.location}</span>
+                <span className="stat-label">Base location</span>
               </div>
             </div>
           </motion.div>
 
           <motion.div className="about-cards" variants={itemVariants}>
             <div className="about-card">
-              <HiAcademicCap className="about-card-icon" />
-              <h4>Masters in Computer Science</h4>
+              <HiChip className="about-card-icon" />
+              <h4>What I build</h4>
               <p>
-                University of California - Riverside (Sept 2024 - Mar 2026)
-                <br />
-                <strong>GPA: 3.81/4.0</strong>
+                Retrieval-first AI applications with grounded outputs, model orchestration, and quality evaluation.
               </p>
             </div>
             <div className="about-card">
-              <HiAcademicCap className="about-card-icon" />
-              <h4>B.Tech in CSE (ML & Data Science)</h4>
-              <p>
-                PES University, Bengaluru (Dec 2020 - May 2024)
-                <br />
-                <strong>GPA: 8.3/10</strong>
-              </p>
+              <HiServer className="about-card-icon" />
+              <h4>Backend systems</h4>
+              <p>FastAPI and Flask services, queue-driven workers, and API layers that support real operational workloads.</p>
             </div>
             <div className="about-card">
-              <HiHeart className="about-card-icon" />
-              <h4>Certifications</h4>
-              <ul className="certifications-list">
-                <li>
-                  <a 
-                    href="https://www.udemy.com/certificate/UC-545de3fc-0a87-4a62-a552-b910a7dfdf6b/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="certification-link"
-                  >
-                    Artificial Intelligence A-Z 2025
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://www.credly.com/badges/b621d037-0c80-4ee0-aaa2-a9bda86cc45f/public_url" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="certification-link"
-                  >
-                    AWS Educate Introduction to Cloud 101
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://www.credly.com/badges/9c2b3dd4-7369-41cf-9a9e-5407829afefd/public_url" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="certification-link"
-                  >
-                    LFD103: A Beginner's Guide to Linux Kernel Development
-                  </a>
-                </li>
-                <li>Centre for Innovation and Entrepreneurship - Level 1 & 2</li>
-              </ul>
+              <HiDatabase className="about-card-icon" />
+              <h4>Data layer</h4>
+              <p>PostgreSQL, Redis, and vector databases for reliable retrieval and low-latency inference pipelines.</p>
+            </div>
+            <div className="about-card">
+              <HiSparkles className="about-card-icon" />
+              <h4>Engineering mindset</h4>
+              <p>Production-oriented decisions, measurable outcomes, and systems that stay maintainable as complexity grows.</p>
             </div>
           </motion.div>
         </motion.div>
@@ -143,4 +104,3 @@ const About = () => {
 }
 
 export default About
-

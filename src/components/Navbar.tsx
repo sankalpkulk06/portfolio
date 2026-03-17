@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { HiMenu, HiX } from 'react-icons/hi'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { profile } from '../data/portfolioData'
 
 interface NavbarProps {
   activeSection: string
@@ -9,6 +11,8 @@ interface NavbarProps {
 const Navbar = ({ activeSection }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,12 +23,13 @@ const Navbar = ({ activeSection }: NavbarProps) => {
   }, [])
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'home', label: 'Home', type: 'section' as const },
+    { id: 'about', label: 'About', type: 'section' as const },
+    { id: 'skills', label: 'Skills', type: 'section' as const },
+    { id: 'experience', label: 'Experience', type: 'route' as const, path: '/experience' },
+    { id: 'projects', label: 'Projects', type: 'route' as const, path: '/projects' },
+    { id: 'gallery', label: 'Gallery', type: 'route' as const, path: '/gallery' },
+    { id: 'blogs', label: 'Blogs', type: 'route' as const, path: '/blogs' },
   ]
 
   const scrollToSection = (id: string) => {
@@ -33,6 +38,33 @@ const Navbar = ({ activeSection }: NavbarProps) => {
       element.scrollIntoView({ behavior: 'smooth' })
       setIsMobileMenuOpen(false)
     }
+  }
+
+  const handleNavClick = (item: (typeof navItems)[number]) => {
+    if (item.type === 'route' && item.path) {
+      navigate(item.path)
+      setIsMobileMenuOpen(false)
+      return
+    }
+
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => scrollToSection(item.id), 80)
+      return
+    }
+
+    scrollToSection(item.id)
+  }
+
+  const isItemActive = (item: (typeof navItems)[number]) => {
+    if (item.type === 'route') {
+      if (location.pathname === item.path) return true
+      if (location.pathname === '/' && (item.id === 'experience' || item.id === 'projects')) {
+        return activeSection === item.id
+      }
+      return false
+    }
+    return location.pathname === '/' && activeSection === item.id
   }
 
   return (
@@ -45,23 +77,26 @@ const Navbar = ({ activeSection }: NavbarProps) => {
       <div className="navbar-container">
         <motion.div
           className="navbar-logo"
-          onClick={() => scrollToSection('home')}
+          onClick={() => handleNavClick(navItems[0])}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          S Kulkarni
+          SK
         </motion.div>
 
         <div className="navbar-menu">
           {navItems.map((item) => (
             <button
               key={item.id}
-              className={`navbar-item ${activeSection === item.id ? 'active' : ''}`}
-              onClick={() => scrollToSection(item.id)}
+              className={`navbar-item ${isItemActive(item) ? 'active' : ''}`}
+              onClick={() => handleNavClick(item)}
             >
               {item.label}
             </button>
           ))}
+          <a className="navbar-resume" href={profile.resume} target="_blank" rel="noopener noreferrer">
+            Resume
+          </a>
         </div>
 
         <button
@@ -83,12 +118,15 @@ const Navbar = ({ activeSection }: NavbarProps) => {
           {navItems.map((item) => (
             <button
               key={item.id}
-              className={`mobile-menu-item ${activeSection === item.id ? 'active' : ''}`}
-              onClick={() => scrollToSection(item.id)}
+              className={`mobile-menu-item ${isItemActive(item) ? 'active' : ''}`}
+              onClick={() => handleNavClick(item)}
             >
               {item.label}
             </button>
           ))}
+          <a className="mobile-menu-item mobile-resume" href={profile.resume} target="_blank" rel="noopener noreferrer">
+            Resume
+          </a>
         </motion.div>
       )}
     </motion.nav>
@@ -96,4 +134,3 @@ const Navbar = ({ activeSection }: NavbarProps) => {
 }
 
 export default Navbar
-

@@ -1,21 +1,14 @@
-# Professional Portfolio Website
+# AI Engineer Portfolio Website
 
-A modern, elegant portfolio website built with React and TypeScript. Features smooth animations, responsive design, and a professional layout.
+A premium dark-theme portfolio built with React and TypeScript for showcasing production-ready AI and backend systems work.
 
 ## Features
 
-- **Modern Design**: Clean, elegant UI with smooth animations
-- **Fully Responsive**: Works seamlessly on all devices
-- **TypeScript**: Type-safe code for better development experience
-- **Smooth Animations**: Powered by Framer Motion
-- **Professional Sections**:
-  - Hero section with introduction
-  - About section with personal information
-  - Skills showcase with progress bars
-  - Projects portfolio with featured items
-  - Experience timeline
-  - Contact form
-  - Footer with social links
+- Premium dark visual system with reusable CSS tokens
+- Strong hero with recruiter-facing positioning and CTA actions
+- Featured project cards focused on impact and engineering depth
+- Experience, skills, and contact sections optimized for hiring teams
+- Fully responsive, accessible-first interactions, subtle motion
 
 ## Getting Started
 
@@ -48,38 +41,20 @@ The built files will be in the `dist` directory.
 
 ## Customization
 
-### Update Personal Information
+### Update Content
 
-1. **Hero Section** (`src/components/Hero.tsx`):
-   - Update name, title, and description
-   - Update social media links
-
-2. **About Section** (`src/components/About.tsx`):
-   - Modify the about text
-   - Update statistics
-
-3. **Skills** (`src/components/Skills.tsx`):
-   - Add or remove skills
-   - Adjust skill levels
-
-4. **Projects** (`src/components/Projects.tsx`):
-   - Replace with your own projects
-   - Update project images, descriptions, and links
-
-5. **Experience** (`src/components/Experience.tsx`):
-   - Add your work experience
-   - Update job titles, companies, and descriptions
-
-6. **Contact** (`src/components/Contact.tsx`):
-   - Update contact information
-   - Modify social media links
+Most content is centralized in `src/data/portfolioData.ts`:
+- profile (name, headline, links)
+- hero stats
+- featured projects
+- experience
+- skill groups
 
 ### Styling
 
-The main styles are in `src/App.css`. You can customize:
-- Colors in `src/index.css` (CSS variables)
-- Component styles in `src/App.css`
-- Global styles in `src/index.css`
+Main styles are in:
+- `src/index.css` for global tokens (dark theme, typography, surfaces)
+- `src/App.css` for layout, components, responsiveness, and transitions
 
 ## Technologies Used
 
@@ -92,4 +67,3 @@ The main styles are in `src/App.css`. You can customize:
 ## License
 
 This project is open source and available for personal use.
-

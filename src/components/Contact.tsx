@@ -1,51 +1,25 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { HiMail, HiPhone, HiLocationMarker } from 'react-icons/hi'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { profile } from '../data/portfolioData'
 
 const Contact = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      alert('Thank you for your message! I will get back to you soon.')
-      setFormData({ name: '', email: '', subject: '', message: '' })
-    }, 1000)
-  }
 
   const contactInfo = [
     {
       icon: HiMail,
       label: 'Email',
-      value: 'sankalpkulk06@gmail.com',
-      link: 'mailto:sankalpkulk06@gmail.com',
+      value: profile.email,
+      link: `mailto:${profile.email}`,
     },
     {
       icon: HiPhone,
       label: 'Phone',
-      value: '+1 (951) 377-5843',
+      value: profile.phone,
       link: 'tel:+19513775843',
     },
     {
@@ -57,8 +31,8 @@ const Contact = () => {
   ]
 
   const socialLinks = [
-    { icon: FaGithub, url: 'https://github.com/sankalpkulk06', label: 'GitHub' },
-    { icon: FaLinkedin, url: 'https://www.linkedin.com/in/sankalpkulkarni/', label: 'LinkedIn' },
+    { icon: FaGithub, url: profile.github, label: 'GitHub' },
+    { icon: FaLinkedin, url: profile.linkedin, label: 'LinkedIn' },
   ]
 
   const containerVariants = {
@@ -92,10 +66,9 @@ const Contact = () => {
           className="section-header"
         >
           <span className="section-tag">Contact</span>
-          <h2 className="section-title">Let's Work Together</h2>
+          <h2 className="section-title">Open to AI & Backend Engineering Roles</h2>
           <p className="section-description">
-            Have a project in mind? I'd love to hear from you. Send me a message
-            and I'll respond as soon as possible.
+            If you're hiring for AI Engineer, Applied AI Engineer, or Backend Python roles, let's connect.
           </p>
         </motion.div>
 
@@ -106,10 +79,9 @@ const Contact = () => {
           animate={isInView ? 'visible' : 'hidden'}
         >
           <motion.div className="contact-info" variants={itemVariants}>
-            <h3>Get in Touch</h3>
+            <h3>Let's build production AI systems</h3>
             <p>
-              I'm always open to discussing new projects, creative ideas, or
-              opportunities to be part of your visions.
+              I can help teams ship AI applications with dependable retrieval, backend infrastructure, and measurable business impact.
             </p>
 
             <div className="contact-details">
@@ -121,16 +93,16 @@ const Contact = () => {
                       <Icon />
                     </div>
                     <div className="contact-detail-content">
-                      <span className="contact-detail-label">{info.label}</span>
+                      <span className="contact-detail-label"> {info.label}</span>
                       {info.link ? (
                         <a
                           href={info.link}
                           className="contact-detail-value"
                         >
-                          {info.value}
+                            {` ${info.value}`}
                         </a>
                       ) : (
-                        <span className="contact-detail-value">{info.value}</span>
+                        <span className="contact-detail-value">{` ${info.value}`}</span>
                       )}
                     </div>
                   </div>
@@ -161,61 +133,18 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          <motion.form
-            className="contact-form"
-            onSubmit={handleSubmit}
-            variants={itemVariants}
-          >
-            <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                rows={6}
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </div>
-            <motion.button
-              type="submit"
-              className="btn btn-primary"
-              disabled={isSubmitting}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </motion.button>
-          </motion.form>
+          <motion.div className="contact-form contact-cta-panel" variants={itemVariants}>
+            <h3>Quick Actions</h3>
+            <a className="btn btn-primary" href={profile.resume} target="_blank" rel="noopener noreferrer">
+              View Resume
+            </a>
+            <a className="btn btn-secondary" href={profile.linkedin} target="_blank" rel="noopener noreferrer">
+              Connect on LinkedIn
+            </a>
+            <a className="btn btn-secondary" href={`mailto:${profile.email}`}>
+              Email Me Directly
+            </a>
+          </motion.div>
         </motion.div>
       </div>
     </section>
@@ -223,4 +152,3 @@ const Contact = () => {
 }
 
 export default Contact
-

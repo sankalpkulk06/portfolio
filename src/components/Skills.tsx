@@ -1,86 +1,11 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import {
-  SiReact,
-  SiTypescript,
-  SiJavascript,
-  SiPython,
-  SiMongodb,
-  SiPostgresql,
-  SiGit,
-  SiDocker,
-  SiAmazonaws,
-  SiTensorflow,
-  SiPytorch,
-  SiRedis,
-  SiApachekafka,
-  SiFlask,
-} from 'react-icons/si'
-import { HiCode, HiCloud, HiChip } from 'react-icons/hi'
+import { skillGroups } from '../data/portfolioData'
 
 const Skills = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-
-  const skillCategories = [
-    {
-      title: 'Languages',
-      skills: [
-        { name: 'Python', icon: SiPython, level: 95 },
-        { name: 'JavaScript', icon: SiJavascript, level: 90 },
-        { name: 'TypeScript', icon: SiTypescript, level: 88 },
-        { name: 'Java', icon: HiCode, level: 85 },
-        { name: 'C', icon: HiCode, level: 80 },
-        { name: 'C++', icon: HiCode, level: 80 },
-        { name: 'R', icon: HiCode, level: 75 },
-        { name: 'MatLab', icon: HiCode, level: 75 },
-      ],
-    },
-    {
-      title: 'AI/ML & Data',
-      skills: [
-        { name: 'PyTorch', icon: SiPytorch, level: 90 },
-        { name: 'TensorFlow', icon: SiTensorflow, level: 88 },
-        { name: 'RAG', icon: HiChip, level: 90 },
-        { name: 'LLM Applications', icon: HiChip, level: 88 },
-        { name: 'Multimodal Retrieval', icon: HiChip, level: 85 },
-        { name: 'Embeddings', icon: HiChip, level: 90 },
-        { name: 'Prompt Engineering', icon: HiChip, level: 88 },
-        { name: 'LangChain', icon: HiChip, level: 85 },
-        { name: 'Hugging Face', icon: HiChip, level: 85 },
-      ],
-    },
-    {
-      title: 'Frameworks & Backend',
-      skills: [
-        { name: 'React', icon: SiReact, level: 92 },
-        { name: 'FastAPI', icon: HiCode, level: 90 },
-        { name: 'Flask', icon: SiFlask, level: 88 },
-      ],
-    },
-    {
-      title: 'Cloud & Infrastructure',
-      skills: [
-        { name: 'AWS', icon: SiAmazonaws, level: 85 },
-        { name: 'GCP', icon: HiCloud, level: 85 },
-        { name: 'Azure Services', icon: HiCloud, level: 80 },
-        { name: 'Docker', icon: SiDocker, level: 88 },
-      ],
-    },
-    {
-      title: 'Databases & Tools',
-      skills: [
-        { name: 'PostgreSQL', icon: SiPostgresql, level: 88 },
-        { name: 'MongoDB', icon: SiMongodb, level: 85 },
-        { name: 'Redis', icon: SiRedis, level: 90 },
-        { name: 'Pinecone', icon: HiCode, level: 85 },
-        { name: 'Kafka', icon: SiApachekafka, level: 80 },
-        { name: 'n8n', icon: HiCode, level: 75 },
-        { name: 'Git', icon: SiGit, level: 95 },
-      ],
-    },
-  ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -113,9 +38,9 @@ const Skills = () => {
           className="section-header"
         >
           <span className="section-tag">Skills</span>
-          <h2 className="section-title">Technologies I Work With</h2>
+          <h2 className="section-title">Technical Stack</h2>
           <p className="section-description">
-            A comprehensive toolkit for building modern applications
+            Core tools I use to build, deploy, and scale applied AI backend systems.
           </p>
         </motion.div>
 
@@ -125,7 +50,7 @@ const Skills = () => {
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
         >
-          {skillCategories.map((category, categoryIndex) => (
+          {skillGroups.map((category, categoryIndex) => (
             <motion.div
               key={categoryIndex}
               className="skill-category"
@@ -133,38 +58,13 @@ const Skills = () => {
             >
               <h3 className="skill-category-title">{category.title}</h3>
               <div className="skill-items">
-                {category.skills.map((skill, skillIndex) => {
-                  const Icon = skill.icon
-                  return (
-                    <motion.div
-                      key={skillIndex}
-                      className="skill-item"
-                    >
-                      <div className="skill-icon">
-                        <Icon />
-                      </div>
-                      <div className="skill-info">
-                        <span className="skill-name">{skill.name}</span>
-                        <div className="skill-bar">
-                          <motion.div
-                            className="skill-progress"
-                            initial={{ width: 0 }}
-                            animate={
-                              isInView
-                                ? { width: `${skill.level}%` }
-                                : { width: 0 }
-                            }
-                            transition={{
-                              duration: 1,
-                              delay: categoryIndex * 0.2 + skillIndex * 0.1,
-                            }}
-                          />
-                        </div>
-                        <span className="skill-level">{skill.level}%</span>
-                      </div>
-                    </motion.div>
-                  )
-                })}
+                {category.items.map((item) => (
+                  <motion.div key={item} className="skill-item">
+                    <div className="skill-info">
+                      <span className="skill-name">{item}</span>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           ))}
@@ -175,4 +75,3 @@ const Skills = () => {
 }
 
 export default Skills
-

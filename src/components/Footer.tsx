@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { profile } from '../data/portfolioData'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
-    { icon: FaGithub, url: 'https://github.com/sankalpkulk06', label: 'GitHub' },
-    { icon: FaLinkedin, url: 'https://www.linkedin.com/in/sankalpkulkarni/', label: 'LinkedIn' },
+    { icon: FaGithub, url: profile.github, label: 'GitHub' },
+    { icon: FaLinkedin, url: profile.linkedin, label: 'LinkedIn' },
   ]
 
   return (
@@ -14,8 +15,8 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3>Sankalp Kulkarni</h3>
-            <p>AI Engineer building elegant solutions with modern technology.</p>
+            <h3>{profile.name}</h3>
+            <p>AI Engineer · AI & Backend Systems · Python, FastAPI, RAG, Vector DBs</p>
           </div>
 
           <div className="footer-section">
@@ -28,10 +29,19 @@ const Footer = () => {
                 <a href="#about">About</a>
               </li>
               <li>
-                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
               </li>
               <li>
-                <a href="#contact">Contact</a>
+                <a href="/experience">Experience</a>
+              </li>
+              <li>
+                <a href="/projects">Projects</a>
+              </li>
+              <li>
+                <a href="/gallery">Gallery</a>
+              </li>
+              <li>
+                <a href="/blogs">Blogs</a>
               </li>
             </ul>
           </div>
@@ -62,8 +72,7 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p>
-            &copy; {currentYear} Portfolio. All rights reserved. Built with React
-            & TypeScript.
+            &copy; {currentYear} {profile.name}. Built with React, TypeScript, and a focus on production-ready engineering.
           </p>
         </div>
       </div>
@@ -72,4 +81,3 @@ const Footer = () => {
 }
 
 export default Footer
-

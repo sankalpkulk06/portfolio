@@ -257,9 +257,46 @@
     font-size: 14.5px;
     line-height: 1.6;
     color: var(--ink-0);
-    white-space: pre-wrap;
     word-wrap: break-word;
   }
+  .bubble p { margin: 0; }
+  .bubble p + p,
+  .bubble ul + p,
+  .bubble p + ul {
+    margin-top: 10px;
+  }
+  .bubble ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    display: grid;
+    gap: 8px;
+  }
+  .bubble li {
+    position: relative;
+    padding-left: 18px;
+  }
+  .bubble li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.65);
+  }
+  .bubble strong {
+    color: var(--ink-0);
+    font-weight: 700;
+  }
+  .bubble a {
+    color: #6fdcff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(111, 220, 255, 0.35);
+  }
+  .bubble a:hover { border-bottom-color: currentColor; }
   .msg.bot .bubble {
     background: rgba(108, 99, 255, 0.08);
     border: 1px solid rgba(108, 99, 255, 0.2);
@@ -1765,6 +1802,47 @@ function escapeHtml(str) {
   }[c]));
 }
 
+function formatBotReply(text) {
+  const lines = escapeHtml(text).split(/\r?\n/);
+  const html = [];
+  let listOpen = false;
+
+  const closeList = () => {
+    if (listOpen) {
+      html.push('</ul>');
+      listOpen = false;
+    }
+  };
+
+  const formatInline = (value) => value
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+
+  lines.forEach((line) => {
+    const trimmed = line.trim();
+    if (!trimmed) {
+      closeList();
+      return;
+    }
+
+    const bullet = trimmed.match(/^(?:[-*•]\s+)(.+)$/);
+    if (bullet) {
+      if (!listOpen) {
+        html.push('<ul>');
+        listOpen = true;
+      }
+      html.push(`<li>${formatInline(bullet[1])}</li>`);
+      return;
+    }
+
+    closeList();
+    html.push(`<p>${formatInline(trimmed)}</p>`);
+  });
+
+  closeList();
+  return html.join('');
+}
+
 function appendMessage(role, html, { typing = false } = {}) {
   const wrap = document.createElement('div');
   wrap.className = 'msg ' + role;
@@ -1829,13 +1907,13 @@ async function sendMessage(text) {
 
     const reply = data.reply || CANNED.default;
     chatHistory.push({ role: 'assistant', content: reply });
-    typingNode.querySelector('.bubble').innerHTML = escapeHtml(reply).replace(/\n/g, '<br>');
+    typingNode.querySelector('.bubble').innerHTML = formatBotReply(reply);
   } catch (error) {
     const reply = window.location.protocol === 'file:'
       ? fakeBotReply(userText)
       : "I couldn't reach the portfolio AI right now. Please check that the Vercel serverless function is deployed and GROQ_API_KEY is set.";
     chatHistory.push({ role: 'assistant', content: reply });
-    typingNode.querySelector('.bubble').innerHTML = escapeHtml(reply).replace(/\n/g, '<br>');
+    typingNode.querySelector('.bubble').innerHTML = formatBotReply(reply);
   } finally {
     chatInput.disabled = false;
     chatSendButton.disabled = false;

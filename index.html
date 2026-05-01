@@ -1050,31 +1050,67 @@
       </div>
 
       <!-- PROJECTS -->
-      <div class="section-label">Projects</div>
-      <div class="grid">
-        <article class="card flip-card" style="animation-delay: 0.05s" tabindex="0">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="card-icon">🔍</div>
-              <div class="card-meta">
+      <div class=”section-label”>Projects</div>
+      <div class=”grid”>
+        <article class=”card flip-card” style=”animation-delay: 0.05s” tabindex=”0”>
+          <div class=”flip-inner”>
+            <div class=”flip-front”>
+              <div class=”card-icon”>🧠</div>
+              <div class=”card-meta”>
+                <span>2025 → Present</span>
+                <span class=”badge-now”>Active</span>
+              </div>
+              <h3>Sage</h3>
+              <div class=”role”>Multi-agent orchestrator &amp; personal AI assistant</div>
+              <p class=”desc”>Local-first multi-agent system with RAG, persistent memory, live news, web search, WhatsApp delivery, Gmail triage, and proactive briefings — orchestrating specialized agents via Ollama tool-calling. No cloud, no tracking.</p>
+              <div class=”tags”>
+                <span class=”tag”>Python</span>
+                <span class=”tag cyan”>Ollama</span>
+                <span class=”tag violet”>Multi-Agent</span>
+                <span class=”tag”>FastAPI</span>
+                <span class=”tag cyan”>ChromaDB</span>
+              </div>
+              <div class=”flip-hint”><svg viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.2” stroke-linecap=”round” stroke-linejoin=”round”><path d=”M3 12a9 9 0 0 1 15-6.7L21 8”/><path d=”M21 3v5h-5”/></svg>Flip</div>
+            </div>
+            <div class=”flip-back”>
+              <div class=”flip-back-header”>
+                <div class=”flip-back-title”><small>Project deep-dive</small>Sage · Multi-Agent Orchestrator</div>
+                <button class=”flip-close” aria-label=”Close”><svg width=”12” height=”12” viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.5” stroke-linecap=”round”><path d=”M18 6L6 18M6 6l12 12”/></svg></button>
+              </div>
+              <ul>
+                <li><strong>Multi-agent orchestration</strong> via open-source Ollama tool-calling — a router LLM autonomously dispatches to specialized agents (web search, news, RAG, memory, reminders, Gmail) based on intent.</li>
+                <li><strong>Local-first RAG pipeline</strong> over personal documents (PDF, Markdown, TXT) with ChromaDB vector search and selective retrieval — skips embedding overhead for casual chat.</li>
+                <li><strong>WhatsApp integration</strong> via Twilio + FastAPI webhook: full chat, commands, and proactive reminder delivery with daily scheduling and missed-reminder recovery.</li>
+                <li><strong>Gmail triage agent</strong> via Google OAuth — classifies inbox into ACTION / FYI / IGNORE with AI-generated summaries surfacing what needs a reply.</li>
+                <li>Persistent <strong>SQLite-backed sessions, facts, and todos</strong> with session resume, conversation analytics dashboard, and usage tracking.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class=”card flip-card” style=”animation-delay: 0.15s” tabindex=”0”>
+          <div class=”flip-inner”>
+            <div class=”flip-front”>
+              <div class=”card-icon”>🔍</div>
+              <div class=”card-meta”>
                 <span>Apr 2025 → Present</span>
-                <span class="badge-now">Pilot</span>
+                <span class=”badge-now”>Pilot</span>
               </div>
               <h3>SafeBot</h3>
-              <div class="role">Investigation platform for Riverside PD</div>
-              <p class="desc">Human-in-the-loop email triage and suspect-flagging with hybrid keyword rules + LLM risk scoring. Google OAuth, RBAC, audit logs. Deployed on GCP Cloud Run with CI/CD.</p>
-              <div class="tags">
-                <span class="tag">GCP</span>
-                <span class="tag cyan">LLM</span>
-                <span class="tag violet">React</span>
-                <span class="tag">PostgreSQL</span>
+              <div class=”role”>Investigation platform for Riverside PD</div>
+              <p class=”desc”>Human-in-the-loop email triage and suspect-flagging with hybrid keyword rules + LLM risk scoring. Google OAuth, RBAC, audit logs. Deployed on GCP Cloud Run with CI/CD.</p>
+              <div class=”tags”>
+                <span class=”tag”>GCP</span>
+                <span class=”tag cyan”>LLM</span>
+                <span class=”tag violet”>React</span>
+                <span class=”tag”>PostgreSQL</span>
               </div>
-              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>Flip</div>
+              <div class=”flip-hint”><svg viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.2” stroke-linecap=”round” stroke-linejoin=”round”><path d=”M3 12a9 9 0 0 1 15-6.7L21 8”/><path d=”M21 3v5h-5”/></svg>Flip</div>
             </div>
-            <div class="flip-back">
-              <div class="flip-back-header">
-                <div class="flip-back-title"><small>Project deep-dive</small>SafeBot · Applied AI for Investigations</div>
-                <button class="flip-close" aria-label="Close"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+            <div class=”flip-back”>
+              <div class=”flip-back-header”>
+                <div class=”flip-back-title”><small>Project deep-dive</small>SafeBot · Applied AI for Investigations</div>
+                <button class=”flip-close” aria-label=”Close”><svg width=”12” height=”12” viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.5” stroke-linecap=”round”><path d=”M18 6L6 18M6 6l12 12”/></svg></button>
               </div>
               <ul>
                 <li>Built a production investigation platform for <strong>Riverside Police Department</strong> processing <strong>10K+ emails/hour</strong> for triage and suspect flagging.</li>
@@ -1087,59 +1123,29 @@
           </div>
         </article>
 
-        <article class="card flip-card" style="animation-delay: 0.15s" tabindex="0">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="card-icon">📊</div>
-              <div class="card-meta"><span>2023</span></div>
-              <h3>Test Device Recommendation Engine</h3>
-              <div class="role">ML-driven device matrix selection</div>
-              <p class="desc">Clustered 1K+ OEM configurations and ranked similarity over 125K+ log lines via TF-IDF. Replaced manual heuristics with data-driven scoring and cut device selection time to under 90 seconds.</p>
-              <div class="tags">
-                <span class="tag">ML</span>
-                <span class="tag cyan">TF-IDF</span>
-                <span class="tag violet">Clustering</span>
-              </div>
-              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>Flip</div>
-            </div>
-            <div class="flip-back">
-              <div class="flip-back-header">
-                <div class="flip-back-title"><small>Project deep-dive</small>Test Device Recommendation Engine</div>
-                <button class="flip-close" aria-label="Close"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-              </div>
-              <ul>
-                <li>Built a recommendation system to <strong>automate test-device selection</strong> for QA teams managing massive device matrices.</li>
-                <li>Clustered <strong>1K+ OEM configurations</strong> and analyzed <strong>125K+ log lines</strong> using TF-IDF and similarity-based ranking.</li>
-                <li>Replaced manual heuristics with data-driven scoring — <strong>device selection time cut to under 90 seconds</strong>.</li>
-                <li>Integrated as a recommendation layer into the broader Pcloudy test automation platform.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <article class="card flip-card" style="animation-delay: 0.25s" tabindex="0">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="card-icon">📱</div>
-              <div class="card-meta">
+        <article class=”card flip-card” style=”animation-delay: 0.25s” tabindex=”0”>
+          <div class=”flip-inner”>
+            <div class=”flip-front”>
+              <div class=”card-icon”>📱</div>
+              <div class=”card-meta”>
                 <span>2023</span>
-                <span class="dot">•</span>
+                <span class=”dot”>•</span>
                 <span>Published 2024</span>
               </div>
               <h3>Android Log Search Utility</h3>
-              <div class="role">Real-time log parsing &amp; classification</div>
-              <p class="desc">Parsed 250K+ Android log lines with failure classification. Published in the <em>International Journal of Applied Engineering and Technology</em>, London, 2024.</p>
-              <div class="tags">
-                <span class="tag">Node.js</span>
-                <span class="tag cyan">MongoDB</span>
-                <span class="tag violet">Published</span>
+              <div class=”role”>Real-time log parsing &amp; classification</div>
+              <p class=”desc”>Parsed 250K+ Android log lines with failure classification. Published in the <em>International Journal of Applied Engineering and Technology</em>, London, 2024.</p>
+              <div class=”tags”>
+                <span class=”tag”>Node.js</span>
+                <span class=”tag cyan”>MongoDB</span>
+                <span class=”tag violet”>Published</span>
               </div>
-              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>Flip</div>
+              <div class=”flip-hint”><svg viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.2” stroke-linecap=”round” stroke-linejoin=”round”><path d=”M3 12a9 9 0 0 1 15-6.7L21 8”/><path d=”M21 3v5h-5”/></svg>Flip</div>
             </div>
-            <div class="flip-back">
-              <div class="flip-back-header">
-                <div class="flip-back-title"><small>Project deep-dive</small>Android Log Search Utility</div>
-                <button class="flip-close" aria-label="Close"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+            <div class=”flip-back”>
+              <div class=”flip-back-header”>
+                <div class=”flip-back-title”><small>Project deep-dive</small>Android Log Search Utility</div>
+                <button class=”flip-close” aria-label=”Close”><svg width=”12” height=”12” viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.5” stroke-linecap=”round”><path d=”M18 6L6 18M6 6l12 12”/></svg></button>
               </div>
               <ul>
                 <li>Built a <strong>real-time Android log parsing and search system</strong> (Node.js, MongoDB) processing <strong>250K+ log lines</strong>.</li>
@@ -1151,37 +1157,31 @@
           </div>
         </article>
 
-        <article class="card flip-card" style="animation-delay: 0.35s" tabindex="0">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="card-icon">🧠</div>
-              <div class="card-meta">
-                <span>2025 → Present</span>
-                <span class="badge-now">Active</span>
+        <article class=”card flip-card” style=”animation-delay: 0.35s” tabindex=”0”>
+          <div class=”flip-inner”>
+            <div class=”flip-front”>
+              <div class=”card-icon”>📊</div>
+              <div class=”card-meta”><span>2023</span></div>
+              <h3>Test Device Recommendation Engine</h3>
+              <div class=”role”>ML-driven device matrix selection</div>
+              <p class=”desc”>Clustered 1K+ OEM configurations and ranked similarity over 125K+ log lines via TF-IDF. Replaced manual heuristics with data-driven scoring and cut device selection time to under 90 seconds.</p>
+              <div class=”tags”>
+                <span class=”tag”>ML</span>
+                <span class=”tag cyan”>TF-IDF</span>
+                <span class=”tag violet”>Clustering</span>
               </div>
-              <h3>Sage</h3>
-              <div class="role">Local-first personal AI assistant</div>
-              <p class="desc">Privacy-first CLI agent with RAG, persistent memory, live news, web search, WhatsApp delivery, Gmail triage, and proactive briefings — all running on local Ollama models. No cloud, no tracking.</p>
-              <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag cyan">Ollama</span>
-                <span class="tag violet">RAG</span>
-                <span class="tag">FastAPI</span>
-                <span class="tag cyan">ChromaDB</span>
-              </div>
-              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>Flip</div>
+              <div class=”flip-hint”><svg viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.2” stroke-linecap=”round” stroke-linejoin=”round”><path d=”M3 12a9 9 0 0 1 15-6.7L21 8”/><path d=”M21 3v5h-5”/></svg>Flip</div>
             </div>
-            <div class="flip-back">
-              <div class="flip-back-header">
-                <div class="flip-back-title"><small>Project deep-dive</small>Sage · Personal AI Agent</div>
-                <button class="flip-close" aria-label="Close"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+            <div class=”flip-back”>
+              <div class=”flip-back-header”>
+                <div class=”flip-back-title”><small>Project deep-dive</small>Test Device Recommendation Engine</div>
+                <button class=”flip-close” aria-label=”Close”><svg width=”12” height=”12” viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.5” stroke-linecap=”round”><path d=”M18 6L6 18M6 6l12 12”/></svg></button>
               </div>
               <ul>
-                <li><strong>Local-first RAG pipeline</strong> over personal documents (PDF, Markdown, TXT) with ChromaDB vector search and selective retrieval — skips embedding overhead for casual chat.</li>
-                <li><strong>Open-source tool calling</strong> on Ollama (llama3.1, mistral) — model autonomously invokes web search, news fetch, reminder creation, and fact memory based on intent.</li>
-                <li><strong>WhatsApp integration</strong> via Twilio + FastAPI webhook: full chat, commands, and proactive reminder delivery with daily scheduling and missed-reminder recovery.</li>
-                <li><strong>Gmail triage</strong> via Google OAuth — classifies inbox into ACTION / FYI / IGNORE with AI-generated summaries surfacing what needs a reply.</li>
-                <li>Persistent <strong>SQLite-backed sessions, facts, and todos</strong> with session resume, conversation analytics dashboard, and usage tracking.</li>
+                <li>Built a recommendation system to <strong>automate test-device selection</strong> for QA teams managing massive device matrices.</li>
+                <li>Clustered <strong>1K+ OEM configurations</strong> and analyzed <strong>125K+ log lines</strong> using TF-IDF and similarity-based ranking.</li>
+                <li>Replaced manual heuristics with data-driven scoring — <strong>device selection time cut to under 90 seconds</strong>.</li>
+                <li>Integrated as a recommendation layer into the broader Pcloudy test automation platform.</li>
               </ul>
             </div>
           </div>

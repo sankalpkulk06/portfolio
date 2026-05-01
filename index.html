@@ -893,7 +893,7 @@
     justify-content: space-between;
     gap: 24px;
     flex-wrap: wrap;
-    margin-bottom: 28px;
+    margin-bottom: 34px;
     animation: rise 0.7s ease both;
   }
   .travel-title {
@@ -944,167 +944,88 @@
     text-transform: uppercase;
     letter-spacing: 1px;
   }
-  .travel-map-wrap {
-    position: relative;
-    min-height: 560px;
+  .travel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+  .travel-card {
+    background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    border-radius: var(--radius-lg);
-    background:
-      radial-gradient(circle at 18% 30%, rgba(108,99,255,0.16), transparent 28%),
-      radial-gradient(circle at 78% 55%, rgba(0,198,255,0.13), transparent 30%),
-      rgba(255,255,255,0.035);
-    box-shadow: var(--shadow-card);
-    overflow: hidden;
-  }
-  .travel-map {
-    position: absolute;
-    inset: 34px;
-    background:
-      linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
-    background-size: 48px 48px;
     border-radius: var(--radius-md);
+    padding: 18px;
+    box-shadow: var(--shadow-card);
+    min-height: 310px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    animation: cardIn 0.6s ease both;
   }
-  .travel-map svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    filter: drop-shadow(0 18px 34px rgba(0,0,0,0.24));
+  .travel-card-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
   }
-  .land {
-    fill: rgba(255,255,255,0.08);
-    stroke: rgba(255,255,255,0.08);
-    stroke-width: 1;
-  }
-  .visited-country {
-    position: absolute;
-    border: 1px solid rgba(255,255,255,0.28);
-    color: white;
-    background: rgba(255, 145, 77, 0.22);
-    box-shadow:
-      0 0 0 8px rgba(255, 145, 77, 0.07),
-      0 12px 26px -16px rgba(255, 145, 77, 0.95);
-    border-radius: 50%;
-    cursor: pointer;
+  .travel-flag {
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
     display: grid;
     place-items: center;
-    font: inherit;
-    font-size: 0;
-    transform: translate(-50%, -50%);
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--glass-border-strong);
+    font-size: 25px;
+    flex-shrink: 0;
   }
-  .visited-country::before {
-    content: "";
-    width: 42%;
-    height: 42%;
-    border-radius: 50%;
-    background: radial-gradient(circle, #fff2c2 0%, #ff8a3d 60%, #ff4d6d 100%);
-    box-shadow: 0 0 22px rgba(255, 121, 77, 0.85);
+  .travel-card h3 {
+    font-size: 18px;
+    line-height: 1.25;
+    margin: 0;
+    letter-spacing: -0.2px;
   }
-  .visited-country:hover,
-  .visited-country:focus-visible {
-    border-color: rgba(255,255,255,0.58);
-    box-shadow:
-      0 0 0 12px rgba(255, 145, 77, 0.11),
-      0 18px 34px -18px rgba(255, 145, 77, 1);
-    transform: translate(-50%, -50%) scale(1.12);
-    outline: none;
-  }
-  .visited-country .country-label {
-    position: absolute;
-    top: calc(100% + 9px);
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    font-size: 12px;
-    color: var(--ink-0);
-    background: rgba(7, 9, 26, 0.72);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-pill);
-    padding: 4px 9px;
-    pointer-events: none;
-  }
-  .travel-hint {
-    position: absolute;
-    left: 30px;
-    bottom: 24px;
-    right: 30px;
-    display: flex;
-    justify-content: space-between;
-    gap: 18px;
-    flex-wrap: wrap;
+  .travel-region {
     color: var(--ink-2);
     font-size: 12.5px;
+    line-height: 1.55;
+    margin-top: 4px;
   }
-  .travel-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 18px;
-  }
-  .travel-chip {
-    background: rgba(255, 145, 77, 0.11);
-    color: #ffd2a8;
-    border: 1px solid rgba(255, 145, 77, 0.26);
-    border-radius: var(--radius-pill);
-    padding: 7px 12px;
-    font-size: 12px;
-    font-weight: 600;
-  }
-  .travel-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    background: rgba(2, 5, 16, 0.72);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
-  .travel-modal.open { display: flex; }
-  .travel-dialog {
-    width: min(760px, 100%);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--glass-border-strong);
-    background: rgba(12, 17, 36, 0.96);
-    box-shadow: 0 28px 80px -24px rgba(0,0,0,0.75);
+  .travel-photo-slot {
+    flex: 1;
+    min-height: 170px;
+    border: 1px dashed rgba(255,255,255,0.18);
+    border-radius: var(--radius-md);
+    background:
+      linear-gradient(135deg, rgba(108,99,255,0.1), rgba(0,198,255,0.07)),
+      rgba(255,255,255,0.035);
+    display: grid;
+    place-items: center;
     overflow: hidden;
     position: relative;
   }
-  .travel-dialog img {
+  .travel-photo-slot img {
     width: 100%;
-    max-height: 460px;
+    height: 100%;
     object-fit: cover;
     display: block;
-    background: rgba(255,255,255,0.04);
   }
-  .travel-caption {
-    padding: 22px 24px 24px;
+  .travel-placeholder {
+    text-align: center;
+    color: var(--ink-2);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
-  .travel-caption h3 {
+  .travel-placeholder span {
+    display: block;
+    margin-bottom: 7px;
     font-size: 24px;
-    margin-bottom: 6px;
-    letter-spacing: -0.3px;
+    letter-spacing: 0;
   }
-  .travel-caption p {
-    color: var(--ink-1);
-    font-size: 14px;
-  }
-  .travel-close {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.22);
-    background: rgba(7, 9, 26, 0.68);
-    color: white;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
+  .travel-note {
+    color: var(--ink-3);
+    font-size: 12px;
+    margin-top: 18px;
   }
 
   /* ---------- RESPONSIVE ---------- */
@@ -1142,10 +1063,7 @@
     .ach-shell { padding: 36px 18px 60px; }
     .travel-shell { padding: 36px 18px 60px; }
     .travel-stat { text-align: left; }
-    .travel-map-wrap { min-height: 460px; }
-    .travel-map { inset: 20px 12px 72px; }
-    .travel-hint { left: 18px; right: 18px; bottom: 18px; }
-    .visited-country .country-label { font-size: 11px; }
+    .travel-grid { grid-template-columns: 1fr; }
   }
 
   /* footer micro */
@@ -1183,12 +1101,10 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
         Achievements
       </button>
-      <!--
       <button class="nav-link" data-page="travel" onclick="setPage('travel')">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         Travel
       </button>
-      -->
     </div>
   </div>
 </nav>
@@ -1227,42 +1143,122 @@
     </div>
   </section>
 
-  <!-- ============ TRAVEL PAGE (paused) ============
+  <!-- ============ TRAVEL PAGE ============ -->
   <section class="page" id="page-travel" data-screen-label="Travel">
     <div class="travel-shell">
       <header class="travel-header">
         <div>
-          <h1 class="travel-title">Places I've <span class="grad">wandered through</span></h1>
-          <p class="travel-sub">A small travel heatmap. Warmer countries are places I've visited, and each marker opens a photo with a caption.</p>
+          <h1 class="travel-title">Places I've <span class="grad">travelled</span></h1>
+          <p class="travel-sub">A clean travel shelf for the countries I have visited, with space to drop in one favorite photo from each place.</p>
         </div>
         <div class="travel-stats">
-          <div class="travel-stat"><strong id="travelCountryCount">0</strong><span>Countries</span></div>
-          <div class="travel-stat"><strong id="travelPhotoCount">0</strong><span>Photos</span></div>
+          <div class="travel-stat"><strong>8</strong><span>Countries</span></div>
+          <div class="travel-stat"><strong>1</strong><span>Photo Each</span></div>
         </div>
       </header>
 
-      <div class="travel-map-wrap">
-        <div class="travel-map" id="travelMap" aria-label="Interactive travel heatmap">
-          <svg viewBox="0 0 1000 500" role="img" aria-label="Stylized world map">
-            <path class="land" d="M111 132c42-52 124-67 184-38 33 16 55 45 69 82 17 45-9 87-51 100-46 14-54 60-91 81-43 25-104-1-126-51-23-52-31-117 15-174z"/>
-            <path class="land" d="M296 318c35-19 85-3 103 35 16 34 7 80-22 105-28 24-73 18-92-14-23-37-26-106 11-126z"/>
-            <path class="land" d="M456 105c43-31 126-30 166 3 27 22 40 54 74 62 48 10 91 39 91 84 0 45-42 71-89 67-42-4-72 10-105 39-42 37-111 24-135-28-16-35-3-68-18-101-18-39-24-97 16-126z"/>
-            <path class="land" d="M544 321c31-18 76-8 96 22 23 35 13 91-25 119-37 27-91 5-102-42-9-39 2-82 31-99z"/>
-            <path class="land" d="M760 140c51-41 144-34 184 11 31 36 27 88-17 111-39 20-74 7-105 34-34 30-91 20-112-20-24-46 4-102 50-136z"/>
-            <path class="land" d="M808 332c31-18 75-4 93 31 15 30 7 70-20 91-28 22-69 14-88-18-20-34-18-85 15-104z"/>
-          </svg>
-          <div id="travelMarkers"></div>
-        </div>
-        <div class="travel-hint">
-          <span>Click a warm marker to open the photo.</span>
-          <span>Replace the starter images in <code>TRAVEL_PLACES</code> as you upload travel photos.</span>
-        </div>
+      <div class="travel-grid">
+        <article class="travel-card" style="animation-delay: 0.00s">
+          <div class="travel-card-head">
+            <div class="travel-flag" aria-hidden="true">🇺🇸</div>
+            <div>
+              <h3>United States of America</h3>
+              <!-- <p class="travel-region">California, Nevada, Arizona, Utah, Illinois, Wisconsin, Indiana, New Jersey, New York, Pennsylvania</p> -->
+            </div>
+          </div>
+          <div class="travel-photo-slot">
+            <div class="travel-placeholder"><span>Coming soon...</span>Travel photo</div>
+          </div>
+        </article>
+
+        <article class="travel-card" style="animation-delay: 0.06s">
+          <div class="travel-card-head">
+            <div class="travel-flag" aria-hidden="true">🇮🇳</div>
+            <div>
+              <h3>India</h3>
+            </div>
+          </div>
+          <div class="travel-photo-slot">
+            <div class="travel-placeholder"><span>Coming soon...</span>Travel photo</div>
+          </div>
+        </article>
+
+        <article class="travel-card" style="animation-delay: 0.12s">
+          <div class="travel-card-head">
+            <div class="travel-flag" aria-hidden="true">🇫🇷</div>
+            <div>
+              <h3>France</h3>
+            </div>
+          </div>
+          <div class="travel-photo-slot">
+            <div class="travel-placeholder"><span>Coming soon...</span>Travel photo</div>
+          </div>
+        </article>
+
+        <article class="travel-card" style="animation-delay: 0.18s">
+          <div class="travel-card-head">
+            <div class="travel-flag" aria-hidden="true">🇮🇹</div>
+            <div>
+              <h3>Italy</h3>
+            </div>
+          </div>
+          <div class="travel-photo-slot">
+            <div class="travel-placeholder"><span>Coming soon...</span>Travel photo</div>
+          </div>
+        </article>
+
+        <article class="travel-card" style="animation-delay: 0.24s">
+          <div class="travel-card-head">
+            <div class="travel-flag" aria-hidden="true">🇨🇭</div>
+            <div>
+              <h3>Switzerland</h3>
+            </div>
+          </div>
+          <div class="travel-photo-slot">
+            <div class="travel-placeholder"><span>Coming soon...</span>Travel photo</div>
+          </div>
+        </article>
+
+        <article class="travel-card" style="animation-delay: 0.30s">
+          <div class="travel-card-head">
+            <div class="travel-flag" aria-hidden="true">🇩🇪</div>
+            <div>
+              <h3>Germany</h3>
+            </div>
+          </div>
+          <div class="travel-photo-slot">
+            <div class="travel-placeholder"><span>Coming soon...</span>Travel photo</div>
+          </div>
+        </article>
+
+        <article class="travel-card" style="animation-delay: 0.36s">
+          <div class="travel-card-head">
+            <div class="travel-flag" aria-hidden="true">🇳🇱</div>
+            <div>
+              <h3>Netherlands</h3>
+            </div>
+          </div>
+          <div class="travel-photo-slot">
+            <div class="travel-placeholder"><span>Coming soon...</span>Travel photo</div>
+          </div>
+        </article>
+
+        <article class="travel-card" style="animation-delay: 0.42s">
+          <div class="travel-card-head">
+            <div class="travel-flag" aria-hidden="true">🇦🇹</div>
+            <div>
+              <h3>Austria</h3>
+            </div>
+          </div>
+          <div class="travel-photo-slot">
+            <div class="travel-placeholder"><span>Coming soon...</span>Travel photo</div>
+          </div>
+        </article>
       </div>
 
-      <div class="travel-list" id="travelList" aria-label="Visited countries"></div>
+      <p class="travel-note">Travel photos coming soon.</p>
     </div>
   </section>
-  -->
 
   <!-- ============ ACHIEVEMENTS PAGE ============ -->
   <section class="page" id="page-achievements" data-screen-label="Achievements">
@@ -1661,20 +1657,6 @@
   </section>
 </main>
 
-<!--
-<div class="travel-modal" id="travelModal" role="dialog" aria-modal="true" aria-labelledby="travelModalTitle">
-  <div class="travel-dialog">
-    <button class="travel-close" id="travelModalClose" aria-label="Close travel photo">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <img id="travelModalImage" src="assets/sankalp.jpeg" alt="" />
-    <div class="travel-caption">
-      <h3 id="travelModalTitle">Travel photo</h3>
-      <p id="travelModalCaption"></p>
-    </div>
-  </div>
-</div>
--->
 
 <script>
 /* =========================================================
@@ -1704,88 +1686,6 @@ function toggleMenu() {
   document.getElementById('navLinks').classList.toggle('open');
   document.getElementById('burger').classList.toggle('open');
 }
-
-/* =========================================================
-   TRAVEL MAP
-   ========================================================= */
-const TRAVEL_PLACES = [
-  {
-    country: 'India',
-    x: 68,
-    y: 50,
-    warmth: 3,
-    image: 'assets/sankalp.jpeg',
-    caption: 'Bangalore roots, family, food, and the place that shaped the early chapters.',
-  },
-  {
-    country: 'United States',
-    x: 22,
-    y: 40,
-    warmth: 2,
-    image: 'assets/sankalp.jpeg',
-    caption: 'California, Riverside, Chicago, and the long arc of school, work, and new cities.',
-  },
-];
-
-const travelMarkers = document.getElementById('travelMarkers');
-const travelList = document.getElementById('travelList');
-const travelCountryCount = document.getElementById('travelCountryCount');
-const travelPhotoCount = document.getElementById('travelPhotoCount');
-const travelModal = document.getElementById('travelModal');
-const travelModalImage = document.getElementById('travelModalImage');
-const travelModalTitle = document.getElementById('travelModalTitle');
-const travelModalCaption = document.getElementById('travelModalCaption');
-const travelModalClose = document.getElementById('travelModalClose');
-
-function renderTravelMap() {
-  if (!travelMarkers || !travelList || !travelCountryCount || !travelPhotoCount) return;
-
-  travelMarkers.innerHTML = '';
-  travelList.innerHTML = '';
-  travelCountryCount.textContent = TRAVEL_PLACES.length;
-  travelPhotoCount.textContent = TRAVEL_PLACES.filter(place => place.image).length;
-
-  TRAVEL_PLACES.forEach((place) => {
-    const marker = document.createElement('button');
-    marker.type = 'button';
-    marker.className = 'visited-country';
-    marker.style.left = place.x + '%';
-    marker.style.top = place.y + '%';
-    marker.style.width = `${34 + place.warmth * 8}px`;
-    marker.style.height = `${34 + place.warmth * 8}px`;
-    marker.setAttribute('aria-label', `Open ${place.country} travel photo`);
-    marker.innerHTML = `<span class="country-label">${escapeHtml(place.country)}</span>`;
-    marker.addEventListener('click', () => openTravelModal(place));
-    travelMarkers.appendChild(marker);
-
-    const chip = document.createElement('button');
-    chip.type = 'button';
-    chip.className = 'travel-chip';
-    chip.textContent = place.country;
-    chip.addEventListener('click', () => openTravelModal(place));
-    travelList.appendChild(chip);
-  });
-}
-
-function openTravelModal(place) {
-  if (!travelModal || !travelModalImage || !travelModalTitle || !travelModalCaption || !travelModalClose) return;
-  travelModalImage.src = place.image;
-  travelModalImage.alt = `${place.country} travel photo`;
-  travelModalTitle.textContent = place.country;
-  travelModalCaption.textContent = place.caption;
-  travelModal.classList.add('open');
-  travelModalClose.focus();
-}
-
-function closeTravelModal() {
-  if (!travelModal) return;
-  travelModal.classList.remove('open');
-}
-
-travelModalClose?.addEventListener('click', closeTravelModal);
-travelModal?.addEventListener('click', (e) => {
-  if (e.target === travelModal) closeTravelModal();
-});
 
 /* =========================================================
    CHAT
@@ -1954,7 +1854,6 @@ document.addEventListener('click', (e) => {
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
-    closeTravelModal();
     document.querySelectorAll('.flip-card.flipped').forEach(c => c.classList.remove('flipped'));
   }
   if ((e.key === 'Enter' || e.key === ' ') && document.activeElement?.classList.contains('flip-card')) {
@@ -1965,7 +1864,6 @@ document.addEventListener('keydown', (e) => {
 
 /* opening message */
 window.addEventListener('DOMContentLoaded', () => {
-  renderTravelMap();
   setTimeout(() => {
     appendMessage('bot', "Hi! I'm Sankalp's portfolio assistant 👋 Ask me about his experience, projects, or skills!");
   }, 200);

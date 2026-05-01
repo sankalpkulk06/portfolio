@@ -26,3 +26,5 @@ dist-ssr
 # PDF files
 *.pdf
 docs
+.vercel
+.env*.local

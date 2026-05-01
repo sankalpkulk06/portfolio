@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sankalp Kulkarni — Portfolio</title>
+<title>Sankalp Kulkarni - Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -45,7 +45,7 @@
     line-height: 1.55;
   }
 
-  /* ambient background — purple/blue orbs */
+  /* ambient background - purple/blue orbs */
   body::before, body::after {
     content: "";
     position: fixed;
@@ -501,7 +501,7 @@
   .flip-inner {
     position: relative;
     width: 100%;
-    min-height: 320px;
+    min-height: 360px;
     transition: transform 1.05s cubic-bezier(0.16, 1.04, 0.36, 1);
     transform-style: preserve-3d;
     will-change: transform;
@@ -720,7 +720,7 @@
   .tag.cyan { background: rgba(0, 198, 255, 0.1); border-color: rgba(0, 198, 255, 0.25); color: #6fdcff; }
   .tag.violet { background: rgba(176, 108, 255, 0.1); border-color: rgba(176, 108, 255, 0.25); color: #d4b3ff; }
 
-  /* education cards — narrower row */
+  /* education cards - narrower row */
   .grid.edu {
     grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   }
@@ -932,7 +932,7 @@
           </div>
         </div>
         <div class="ach-stats">
-          <div class="stat"><div class="stat-num">3+</div><div class="stat-lbl">Years</div></div>
+          <div class="stat"><div class="stat-num">1.5+</div><div class="stat-lbl">Years</div></div>
           <div class="stat"><div class="stat-num">220K+</div><div class="stat-lbl">Embeddings</div></div>
           <div class="stat"><div class="stat-num">3.81</div><div class="stat-lbl">GPA</div></div>
         </div>
@@ -949,9 +949,9 @@
                 <span>Feb 2026 → Present</span>
                 <span class="badge-now">Now</span>
               </div>
-              <h3>Stealth Startup</h3>
-              <div class="role">Software Developer Intern <span class="pin">· AI / Backend · Remote</span></div>
-              <p class="desc">Building semantic role classification with PostgreSQL <code>pgvector</code> hitting 95% accuracy mapping titles to ~900 O*NET occupations. Shipping Node.js REST APIs for AI-driven onboarding.</p>
+              <h3>Stealth AI Startup</h3>
+              <div class="role">Software Developer Intern <span class="pin">· Backend / AI · Remote</span></div>
+              <p class="desc">Designed and shipped REST API endpoints for user onboarding and profile standardization in a consumer app for physical-trade job matching. Owned backend development across all application components for the startup's physical AI product.</p>
               <div class="tags">
                 <span class="tag">AI</span>
                 <span class="tag cyan">Backend</span>
@@ -962,12 +962,13 @@
             </div>
             <div class="flip-back">
               <div class="flip-back-header">
-                <div class="flip-back-title"><small>What I'm doing</small>Stealth Startup · AI Backend</div>
+                <div class="flip-back-title"><small>What I'm doing</small>Stealth Physical AI Startup · Backend</div>
                 <button class="flip-close" aria-label="Close"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
               </div>
               <ul>
                 <li>Designed and shipped <strong>REST API endpoints</strong> for user onboarding and profile standardization in a consumer app for physical-trade job matching.</li>
-                <li>Built a <strong>semantic role classification pipeline</strong> with pgvector and sentence embeddings mapping titles to ~900 O*NET occupations — <strong>95% accuracy</strong> in offline eval.</li>
+                <li>Owned <strong>backend development across application components</strong> for the startup's physical AI product, including API contracts, service logic, data flow, and integrations.</li>
+                <li>Built a <strong>semantic role classification pipeline</strong> with pgvector and sentence embeddings mapping titles to ~900 O*NET occupations - <strong>95% accuracy</strong> in offline eval.</li>
                 <li>Chose <strong>pgvector over a standalone vector DB</strong> to reduce ops complexity and keep embeddings colocated with profile data.</li>
                 <li>Wrote <strong>PyTest unit + integration tests</strong> and added structured logging; aligned roadmap weekly with EM and founder.</li>
                 <li>Collaborated with a 2-person frontend team to define API contracts and ship against weekly milestones.</li>
@@ -1003,8 +1004,8 @@
               </div>
               <ul>
                 <li>Built and deployed a <strong>production RAG system</strong> (FastAPI, Redis, Pinecone, Docker) indexing <strong>220K+ embeddings</strong> for low-latency search.</li>
-                <li>Designed embedding + reranking workflows with <strong>CLIP and Cohere ReRank v3</strong> — <strong>+22% precision@5</strong> while balancing latency and cost.</li>
-                <li>Architected a <strong>fault-tolerant async pipeline</strong> on AWS (S3, SQS, async workers, batch upserts) with backpressure and retry logic — <strong>20K+ items/hour</strong>.</li>
+                <li>Designed embedding + reranking workflows with <strong>CLIP and Cohere ReRank v3</strong> - <strong>+22% precision@5</strong> while balancing latency and cost.</li>
+                <li>Architected a <strong>fault-tolerant async pipeline</strong> on AWS (S3, SQS, async workers, batch upserts) with backpressure and retry logic - <strong>20K+ items/hour</strong>.</li>
                 <li>Sustained <strong>300+ vectors/min</strong> ingestion throughput with structured metrics and distributed logs.</li>
                 <li>Integrated LLM generation with <strong>grounding, prompt templates, and fallback logic</strong>; validated end-to-end with PyTest + Postman.</li>
               </ul>
@@ -1023,7 +1024,7 @@
               </div>
               <h3>Pcloudy <span style="color:var(--ink-2); font-weight:500;">/ Opkey</span></h3>
               <div class="role">Software Engineering Intern</div>
-              <p class="desc">Shipped <strong>Qpilot.AI</strong> MVP — automated test generation across 1,200+ OEM configs with 78% execution success and 90% reduction in test time. Kafka log pipeline at 33K+ events/min.</p>
+              <p class="desc">Shipped <strong>Qpilot.AI</strong> MVP - automated test generation across 1,200+ OEM configs with 78% execution success and 90% reduction in test time. Kafka log pipeline at 33K+ events/min.</p>
               <div class="tags">
                 <span class="tag">Flask</span>
                 <span class="tag cyan">Kafka</span>
@@ -1038,7 +1039,7 @@
                 <button class="flip-close" aria-label="Close"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
               </div>
               <ul>
-                <li>Designed and shipped the <strong>Qpilot.AI MVP</strong> (Flask, Python) — automated script generation and self-healing execution across <strong>1,200+ OEM device configs</strong>.</li>
+                <li>Designed and shipped the <strong>Qpilot.AI MVP</strong> (Flask, Python) - automated script generation and self-healing execution across <strong>1,200+ OEM device configs</strong>.</li>
                 <li>Achieved <strong>78% execution success</strong> and reduced end-to-end test time by <strong>90%</strong>, significantly lowering manual intervention.</li>
                 <li>Built Python/Flask microservices on AWS with <strong>Kafka-based streaming log pipelines</strong> for real-time failure triage at <strong>33K+ events/min</strong>.</li>
                 <li>Automated build, test, deploy via <strong>GitHub Actions</strong>; containerized with Docker for iterative rollouts.</li>
@@ -1050,67 +1051,67 @@
       </div>
 
       <!-- PROJECTS -->
-      <div class=”section-label”>Projects</div>
-      <div class=”grid”>
-        <article class=”card flip-card” style=”animation-delay: 0.05s” tabindex=”0”>
-          <div class=”flip-inner”>
-            <div class=”flip-front”>
-              <div class=”card-icon”>🧠</div>
-              <div class=”card-meta”>
+      <div class="section-label">Projects</div>
+      <div class="grid">
+        <article class="card flip-card" style="animation-delay: 0.05s" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-icon">🧠</div>
+              <div class="card-meta">
                 <span>2025 → Present</span>
-                <span class=”badge-now”>Active</span>
+                <span class="badge-now">Active</span>
               </div>
               <h3>Sage</h3>
-              <div class=”role”>Multi-agent orchestrator &amp; personal AI assistant</div>
-              <p class=”desc”>Local-first multi-agent system with RAG, persistent memory, live news, web search, WhatsApp delivery, Gmail triage, and proactive briefings — orchestrating specialized agents via Ollama tool-calling. No cloud, no tracking.</p>
-              <div class=”tags”>
-                <span class=”tag”>Python</span>
-                <span class=”tag cyan”>Ollama</span>
-                <span class=”tag violet”>Multi-Agent</span>
-                <span class=”tag”>FastAPI</span>
-                <span class=”tag cyan”>ChromaDB</span>
+              <div class="role">Multi-agent orchestrator &amp; personal AI assistant</div>
+              <p class="desc">Local-first multi-agent system with RAG, persistent memory, live news, web search, WhatsApp delivery, Gmail triage, and proactive briefings - orchestrating specialized agents via Ollama tool-calling. No cloud, no tracking.</p>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag cyan">Ollama</span>
+                <span class="tag violet">Multi-Agent</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag cyan">ChromaDB</span>
               </div>
-              <div class=”flip-hint”><svg viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.2” stroke-linecap=”round” stroke-linejoin=”round”><path d=”M3 12a9 9 0 0 1 15-6.7L21 8”/><path d=”M21 3v5h-5”/></svg>Flip</div>
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>Flip</div>
             </div>
-            <div class=”flip-back”>
-              <div class=”flip-back-header”>
-                <div class=”flip-back-title”><small>Project deep-dive</small>Sage · Multi-Agent Orchestrator</div>
-                <button class=”flip-close” aria-label=”Close”><svg width=”12” height=”12” viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.5” stroke-linecap=”round”><path d=”M18 6L6 18M6 6l12 12”/></svg></button>
+            <div class="flip-back">
+              <div class="flip-back-header">
+                <div class="flip-back-title"><small>Project deep-dive</small>Sage · Multi-Agent Orchestrator</div>
+                <button class="flip-close" aria-label="Close"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
               </div>
               <ul>
-                <li><strong>Multi-agent orchestration</strong> via open-source Ollama tool-calling — a router LLM autonomously dispatches to specialized agents (web search, news, RAG, memory, reminders, Gmail) based on intent.</li>
-                <li><strong>Local-first RAG pipeline</strong> over personal documents (PDF, Markdown, TXT) with ChromaDB vector search and selective retrieval — skips embedding overhead for casual chat.</li>
+                <li><strong>Multi-agent orchestration</strong> via open-source Ollama tool-calling - a router LLM autonomously dispatches to specialized agents (web search, news, RAG, memory, reminders, Gmail) based on intent.</li>
+                <li><strong>Local-first RAG pipeline</strong> over personal documents (PDF, Markdown, TXT) with ChromaDB vector search and selective retrieval - skips embedding overhead for casual chat.</li>
                 <li><strong>WhatsApp integration</strong> via Twilio + FastAPI webhook: full chat, commands, and proactive reminder delivery with daily scheduling and missed-reminder recovery.</li>
-                <li><strong>Gmail triage agent</strong> via Google OAuth — classifies inbox into ACTION / FYI / IGNORE with AI-generated summaries surfacing what needs a reply.</li>
+                <li><strong>Gmail triage agent</strong> via Google OAuth - classifies inbox into ACTION / FYI / IGNORE with AI-generated summaries surfacing what needs a reply.</li>
                 <li>Persistent <strong>SQLite-backed sessions, facts, and todos</strong> with session resume, conversation analytics dashboard, and usage tracking.</li>
               </ul>
             </div>
           </div>
         </article>
 
-        <article class=”card flip-card” style=”animation-delay: 0.15s” tabindex=”0”>
-          <div class=”flip-inner”>
-            <div class=”flip-front”>
-              <div class=”card-icon”>🔍</div>
-              <div class=”card-meta”>
+        <article class="card flip-card" style="animation-delay: 0.15s" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-icon">🔍</div>
+              <div class="card-meta">
                 <span>Apr 2025 → Present</span>
-                <span class=”badge-now”>Pilot</span>
+                <span class="badge-now">Pilot</span>
               </div>
               <h3>SafeBot</h3>
-              <div class=”role”>Investigation platform for Riverside PD</div>
-              <p class=”desc”>Human-in-the-loop email triage and suspect-flagging with hybrid keyword rules + LLM risk scoring. Google OAuth, RBAC, audit logs. Deployed on GCP Cloud Run with CI/CD.</p>
-              <div class=”tags”>
-                <span class=”tag”>GCP</span>
-                <span class=”tag cyan”>LLM</span>
-                <span class=”tag violet”>React</span>
-                <span class=”tag”>PostgreSQL</span>
+              <div class="role">Investigation platform for Riverside PD</div>
+              <p class="desc">Human-in-the-loop email triage and suspect-flagging with hybrid keyword rules + LLM risk scoring. Google OAuth, RBAC, audit logs. Deployed on GCP Cloud Run with CI/CD.</p>
+              <div class="tags">
+                <span class="tag">GCP</span>
+                <span class="tag cyan">LLM</span>
+                <span class="tag violet">React</span>
+                <span class="tag">PostgreSQL</span>
               </div>
-              <div class=”flip-hint”><svg viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.2” stroke-linecap=”round” stroke-linejoin=”round”><path d=”M3 12a9 9 0 0 1 15-6.7L21 8”/><path d=”M21 3v5h-5”/></svg>Flip</div>
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>Flip</div>
             </div>
-            <div class=”flip-back”>
-              <div class=”flip-back-header”>
-                <div class=”flip-back-title”><small>Project deep-dive</small>SafeBot · Applied AI for Investigations</div>
-                <button class=”flip-close” aria-label=”Close”><svg width=”12” height=”12” viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.5” stroke-linecap=”round”><path d=”M18 6L6 18M6 6l12 12”/></svg></button>
+            <div class="flip-back">
+              <div class="flip-back-header">
+                <div class="flip-back-title"><small>Project deep-dive</small>SafeBot · Applied AI for Investigations</div>
+                <button class="flip-close" aria-label="Close"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
               </div>
               <ul>
                 <li>Built a production investigation platform for <strong>Riverside Police Department</strong> processing <strong>10K+ emails/hour</strong> for triage and suspect flagging.</li>
@@ -1123,64 +1124,64 @@
           </div>
         </article>
 
-        <article class=”card flip-card” style=”animation-delay: 0.25s” tabindex=”0”>
-          <div class=”flip-inner”>
-            <div class=”flip-front”>
-              <div class=”card-icon”>📱</div>
-              <div class=”card-meta”>
+        <article class="card flip-card" style="animation-delay: 0.25s" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-icon">📱</div>
+              <div class="card-meta">
                 <span>2023</span>
-                <span class=”dot”>•</span>
+                <span class="dot">•</span>
                 <span>Published 2024</span>
               </div>
               <h3>Android Log Search Utility</h3>
-              <div class=”role”>Real-time log parsing &amp; classification</div>
-              <p class=”desc”>Parsed 250K+ Android log lines with failure classification. Published in the <em>International Journal of Applied Engineering and Technology</em>, London, 2024.</p>
-              <div class=”tags”>
-                <span class=”tag”>Node.js</span>
-                <span class=”tag cyan”>MongoDB</span>
-                <span class=”tag violet”>Published</span>
+              <div class="role">Real-time log parsing &amp; classification</div>
+              <p class="desc">Parsed 250K+ Android log lines with failure classification. Published in the <em>International Journal of Applied Engineering and Technology</em>, London, 2024.</p>
+              <div class="tags">
+                <span class="tag">Node.js</span>
+                <span class="tag cyan">MongoDB</span>
+                <span class="tag violet">Published</span>
               </div>
-              <div class=”flip-hint”><svg viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.2” stroke-linecap=”round” stroke-linejoin=”round”><path d=”M3 12a9 9 0 0 1 15-6.7L21 8”/><path d=”M21 3v5h-5”/></svg>Flip</div>
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>Flip</div>
             </div>
-            <div class=”flip-back”>
-              <div class=”flip-back-header”>
-                <div class=”flip-back-title”><small>Project deep-dive</small>Android Log Search Utility</div>
-                <button class=”flip-close” aria-label=”Close”><svg width=”12” height=”12” viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.5” stroke-linecap=”round”><path d=”M18 6L6 18M6 6l12 12”/></svg></button>
+            <div class="flip-back">
+              <div class="flip-back-header">
+                <div class="flip-back-title"><small>Project deep-dive</small>Android Log Search Utility</div>
+                <button class="flip-close" aria-label="Close"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
               </div>
               <ul>
                 <li>Built a <strong>real-time Android log parsing and search system</strong> (Node.js, MongoDB) processing <strong>250K+ log lines</strong>.</li>
                 <li>Added <strong>failure classification and recommendations</strong> for log lines, surfacing error patterns from noisy logs.</li>
                 <li>Improved debugging efficiency for engineers working across high-volume device fleets.</li>
-                <li>Work <strong>published</strong> as “Application Specific Log Parser” in the <em>International Journal of Applied Engineering and Technology</em>, London, 2024.</li>
+                <li>Work <strong>published</strong> as "Application Specific Log Parser" in the <em>International Journal of Applied Engineering and Technology</em>, London, 2024.</li>
               </ul>
             </div>
           </div>
         </article>
 
-        <article class=”card flip-card” style=”animation-delay: 0.35s” tabindex=”0”>
-          <div class=”flip-inner”>
-            <div class=”flip-front”>
-              <div class=”card-icon”>📊</div>
-              <div class=”card-meta”><span>2023</span></div>
+        <article class="card flip-card" style="animation-delay: 0.35s" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-icon">📊</div>
+              <div class="card-meta"><span>2023</span></div>
               <h3>Test Device Recommendation Engine</h3>
-              <div class=”role”>ML-driven device matrix selection</div>
-              <p class=”desc”>Clustered 1K+ OEM configurations and ranked similarity over 125K+ log lines via TF-IDF. Replaced manual heuristics with data-driven scoring and cut device selection time to under 90 seconds.</p>
-              <div class=”tags”>
-                <span class=”tag”>ML</span>
-                <span class=”tag cyan”>TF-IDF</span>
-                <span class=”tag violet”>Clustering</span>
+              <div class="role">ML-driven device matrix selection</div>
+              <p class="desc">Clustered 1K+ OEM configurations and ranked similarity over 125K+ log lines via TF-IDF. Replaced manual heuristics with data-driven scoring and cut device selection time to under 90 seconds.</p>
+              <div class="tags">
+                <span class="tag">ML</span>
+                <span class="tag cyan">TF-IDF</span>
+                <span class="tag violet">Clustering</span>
               </div>
-              <div class=”flip-hint”><svg viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.2” stroke-linecap=”round” stroke-linejoin=”round”><path d=”M3 12a9 9 0 0 1 15-6.7L21 8”/><path d=”M21 3v5h-5”/></svg>Flip</div>
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>Flip</div>
             </div>
-            <div class=”flip-back”>
-              <div class=”flip-back-header”>
-                <div class=”flip-back-title”><small>Project deep-dive</small>Test Device Recommendation Engine</div>
-                <button class=”flip-close” aria-label=”Close”><svg width=”12” height=”12” viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.5” stroke-linecap=”round”><path d=”M18 6L6 18M6 6l12 12”/></svg></button>
+            <div class="flip-back">
+              <div class="flip-back-header">
+                <div class="flip-back-title"><small>Project deep-dive</small>Test Device Recommendation Engine</div>
+                <button class="flip-close" aria-label="Close"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
               </div>
               <ul>
                 <li>Built a recommendation system to <strong>automate test-device selection</strong> for QA teams managing massive device matrices.</li>
                 <li>Clustered <strong>1K+ OEM configurations</strong> and analyzed <strong>125K+ log lines</strong> using TF-IDF and similarity-based ranking.</li>
-                <li>Replaced manual heuristics with data-driven scoring — <strong>device selection time cut to under 90 seconds</strong>.</li>
+                <li>Replaced manual heuristics with data-driven scoring - <strong>device selection time cut to under 90 seconds</strong>.</li>
                 <li>Integrated as a recommendation layer into the broader Pcloudy test automation platform.</li>
               </ul>
             </div>
@@ -1222,7 +1223,7 @@
           <div class="card-meta"><span>2024</span><span class="dot">•</span><span>London</span></div>
           <h3>Application Specific Log Parser</h3>
           <div class="role">International Journal of Applied Engineering and Technology</div>
-          <p class="desc">Real-time Android log parsing, failure classification, and search across 250K+ log lines — improving debugging efficiency for engineers working across high-volume device fleets.</p>
+          <p class="desc">Real-time Android log parsing, failure classification, and search across 250K+ log lines - improving debugging efficiency for engineers working across high-volume device fleets.</p>
           <a class="pub-link" href="https://drive.google.com/file/d/1SNnXSsP8_IvCsQbUIDinWG950wwDey0b/view" target="_blank" rel="noopener">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             View Paper
@@ -1234,7 +1235,7 @@
       <div class="contact">
         <div class="contact-text">
           <h3>Let's build something.</h3>
-          <p>Open to SWE / AI Engineer roles · Riverside, CA</p>
+          <p>Open to SWE / AI Engineer roles · United States</p>
         </div>
         <div class="contact-links">
           <a class="contact-link" href="mailto:sankalpkulk06@gmail.com">
@@ -1310,15 +1311,15 @@ function appendMessage(role, html, { typing = false } = {}) {
   return wrap;
 }
 
-// hardcoded placeholder responses — replace with Groq later
+// hardcoded placeholder responses - replace with Groq later
 const CANNED = {
-  skills: "Sankalp's stack:\n\n• Languages — Python, TypeScript/JS, Java, C/C++\n• Backend — Node.js, FastAPI, Flask, REST APIs\n• Data — PostgreSQL (pgvector), Redis, MongoDB, Kafka\n• AI — RAG, embeddings, reranking, LangChain, Pinecone\n• Cloud — AWS, GCP (Cloud Run), Docker, GitHub Actions",
-  projects: "Three to highlight:\n\n🔍 SafeBot — investigation platform for Riverside PD with LLM risk scoring (in pilot).\n📊 Test Device Recommendation Engine — TF-IDF over 125K log lines, sub-90s selection.\n📱 Android Log Search Utility — published in IJAET, London 2024.\n\nCheck the Achievements tab for full details.",
-  experience: "Sankalp's journey so far:\n\n🚀 Stealth Startup (Feb 2026 → now) — AI/Backend\n⚙️ Quinnox / Qyrus (2025) — AI Engineer Intern, Chicago\n🛠️ Pcloudy / Opkey (2023–24) — SWE Intern, Bangalore\n\nSwitch to Achievements for the full breakdown.",
-  education: "🎓 MS Computer Science — UC Riverside (2024–2026), GPA 3.81 / 4.0\n🎓 BTech CS (ML & Data Science) — PES University, Bangalore (2020–2024), GPA 8.3 / 10",
-  contact: "Best ways to reach Sankalp:\n\n• Email — sankalpkulk06@gmail.com\n• LinkedIn & GitHub linked at the bottom of Achievements\n• Based in Riverside, CA · open to SWE / AI Engineer roles",
-  hello: "Hey 👋 happy to chat about Sankalp's work. Try asking about his projects, skills, or where he's worked — or hit one of the chips above.",
-  default: "I'm a placeholder for now — Groq integration is wired in the code (see TODO). For real answers try one of the suggested questions above, or check the Achievements tab for the full picture."
+  skills: "Sankalp's stack:\n\n• Languages - Python, TypeScript/JS, Java, C/C++\n• Backend - Node.js, FastAPI, Flask, REST APIs\n• Data - PostgreSQL (pgvector), Redis, MongoDB, Kafka\n• AI - RAG, embeddings, reranking, LangChain, Pinecone\n• Cloud - AWS, GCP (Cloud Run), Docker, GitHub Actions",
+  projects: "Three to highlight:\n\n🔍 SafeBot - investigation platform for Riverside PD with LLM risk scoring (in pilot).\n📊 Test Device Recommendation Engine - TF-IDF over 125K log lines, sub-90s selection.\n📱 Android Log Search Utility - published in IJAET, London 2024.\n\nCheck the Achievements tab for full details.",
+  experience: "Sankalp's journey so far:\n\n🚀 Stealth Physical AI Startup (Feb 2026 → now) - Backend / AI\n⚙️ Quinnox / Qyrus (2025) - AI Engineer Intern, Chicago\n🛠️ Pcloudy / Opkey (2023–24) - SWE Intern, Bangalore\n\nSwitch to Achievements for the full breakdown.",
+  education: "🎓 MS Computer Science - UC Riverside (2024–2026), GPA 3.81 / 4.0\n🎓 BTech CS (ML & Data Science) - PES University, Bangalore (2020–2024), GPA 8.3 / 10",
+  contact: "Best ways to reach Sankalp:\n\n• Email - sankalpkulk06@gmail.com\n• LinkedIn & GitHub linked at the bottom of Achievements\n• Based in Riverside, CA · open to SWE / AI Engineer roles",
+  hello: "Hey 👋 happy to chat about Sankalp's work. Try asking about his projects, skills, or where he's worked - or hit one of the chips above.",
+  default: "I'm a placeholder for now - Groq integration is wired in the code (see TODO). For real answers try one of the suggested questions above, or check the Achievements tab for the full picture."
 };
 
 function fakeBotReply(userText) {

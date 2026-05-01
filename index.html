@@ -1150,6 +1150,42 @@
             </div>
           </div>
         </article>
+
+        <article class="card flip-card" style="animation-delay: 0.35s" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-icon">🧠</div>
+              <div class="card-meta">
+                <span>2025 → Present</span>
+                <span class="badge-now">Active</span>
+              </div>
+              <h3>Sage</h3>
+              <div class="role">Local-first personal AI assistant</div>
+              <p class="desc">Privacy-first CLI agent with RAG, persistent memory, live news, web search, WhatsApp delivery, Gmail triage, and proactive briefings — all running on local Ollama models. No cloud, no tracking.</p>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag cyan">Ollama</span>
+                <span class="tag violet">RAG</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag cyan">ChromaDB</span>
+              </div>
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>Flip</div>
+            </div>
+            <div class="flip-back">
+              <div class="flip-back-header">
+                <div class="flip-back-title"><small>Project deep-dive</small>Sage · Personal AI Agent</div>
+                <button class="flip-close" aria-label="Close"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+              </div>
+              <ul>
+                <li><strong>Local-first RAG pipeline</strong> over personal documents (PDF, Markdown, TXT) with ChromaDB vector search and selective retrieval — skips embedding overhead for casual chat.</li>
+                <li><strong>Open-source tool calling</strong> on Ollama (llama3.1, mistral) — model autonomously invokes web search, news fetch, reminder creation, and fact memory based on intent.</li>
+                <li><strong>WhatsApp integration</strong> via Twilio + FastAPI webhook: full chat, commands, and proactive reminder delivery with daily scheduling and missed-reminder recovery.</li>
+                <li><strong>Gmail triage</strong> via Google OAuth — classifies inbox into ACTION / FYI / IGNORE with AI-generated summaries surfacing what needs a reply.</li>
+                <li>Persistent <strong>SQLite-backed sessions, facts, and todos</strong> with session resume, conversation analytics dashboard, and usage tracking.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
       </div>
 
       <!-- EDUCATION -->

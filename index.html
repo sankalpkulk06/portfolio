@@ -501,7 +501,7 @@
   .flip-inner {
     position: relative;
     width: 100%;
-    min-height: 360px;
+    min-height: 400px;
     transition: transform 1.05s cubic-bezier(0.16, 1.04, 0.36, 1);
     transform-style: preserve-3d;
     will-change: transform;
@@ -720,6 +720,40 @@
   .tag.cyan { background: rgba(0, 198, 255, 0.1); border-color: rgba(0, 198, 255, 0.25); color: #6fdcff; }
   .tag.violet { background: rgba(176, 108, 255, 0.1); border-color: rgba(176, 108, 255, 0.25); color: #d4b3ff; }
 
+  .project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 16px;
+  }
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    width: fit-content;
+    padding: 7px 12px;
+    border-radius: var(--radius-pill);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--glass-border-strong);
+    color: var(--ink-0);
+    text-decoration: none;
+    font-size: 11.5px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .project-link:hover {
+    background: rgba(0, 198, 255, 0.14);
+    border-color: rgba(0, 198, 255, 0.38);
+    color: white;
+    transform: translateY(-1px);
+  }
+  .project-link svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
   /* education cards - narrower row */
   .grid.edu {
     grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
@@ -913,7 +947,7 @@
           </button>
         </form>
 
-        <div class="micro-foot">Replies are placeholders · <code>// TODO: Connect Groq API</code></div>
+        <div class="micro-foot">Replies use a Vercel serverless function · <code>GROQ_API_KEY</code> stays server-side</div>
       </div>
     </div>
   </section>
@@ -1071,6 +1105,12 @@
                 <span class="tag">FastAPI</span>
                 <span class="tag cyan">ChromaDB</span>
               </div>
+              <div class="project-actions">
+                <a class="project-link" href="https://github.com/sankalpkulk06/personal-agent" target="_blank" rel="noopener" aria-label="View Sage on GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17a10.94 10.94 0 015.74 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.36-5.25 5.65.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
+                  GitHub
+                </a>
+              </div>
               <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>Flip</div>
             </div>
             <div class="flip-back">
@@ -1085,11 +1125,64 @@
                 <li><strong>Gmail triage agent</strong> via Google OAuth - classifies inbox into ACTION / FYI / IGNORE with AI-generated summaries surfacing what needs a reply.</li>
                 <li>Persistent <strong>SQLite-backed sessions, facts, and todos</strong> with session resume, conversation analytics dashboard, and usage tracking.</li>
               </ul>
+              <div class="project-actions">
+                <a class="project-link" href="https://github.com/sankalpkulk06/personal-agent" target="_blank" rel="noopener" aria-label="View Sage on GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17a10.94 10.94 0 015.74 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.36-5.25 5.65.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
+                  GitHub
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <article class="card flip-card" style="animation-delay: 0.15s" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-icon">🔎</div>
+              <div class="card-meta">
+                <span>CS242</span>
+                <span class="dot">•</span>
+                <span>Information Retrieval</span>
+              </div>
+              <h3>Fandom Wiki Search Engine</h3>
+              <div class="role">Search engine for fan-driven knowledge bases</div>
+              <p class="desc">Final project for CS242: Information Retrieval and Web Search. Indexes and retrieves relevant content across Fandom wikis so users can quickly find characters, lore, game mechanics, and community knowledge.</p>
+              <div class="tags">
+                <span class="tag">Search</span>
+                <span class="tag cyan">Ranking</span>
+                <span class="tag violet">IR</span>
+                <span class="tag">NLP</span>
+              </div>
+              <div class="project-actions">
+                <a class="project-link" href="https://github.com/sankalpkulk06/fandom-search-engine" target="_blank" rel="noopener" aria-label="View Fandom Wiki Search Engine on GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17a10.94 10.94 0 015.74 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.36-5.25 5.65.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
+                  GitHub
+                </a>
+              </div>
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>Flip</div>
+            </div>
+            <div class="flip-back">
+              <div class="flip-back-header">
+                <div class="flip-back-title"><small>Project deep-dive</small>Fandom Wiki Search Engine</div>
+                <button class="flip-close" aria-label="Close"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+              </div>
+              <ul>
+                <li>Built a specialized <strong>search engine across Fandom wikis</strong> for CS242: Information Retrieval and Web Search.</li>
+                <li>Indexed fan-driven knowledge bases so users can retrieve relevant information on <strong>characters, lore, game mechanics, and community content</strong>.</li>
+                <li>Implemented <strong>keyword-based retrieval and ranking techniques</strong> to return accurate, fast results for fandom-specific queries.</li>
+                <li>Designed around the needs of fandom communities, where search intent often depends on names, aliases, game terms, and lore-specific context.</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link" href="https://github.com/sankalpkulk06/fandom-search-engine" target="_blank" rel="noopener" aria-label="View Fandom Wiki Search Engine on GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17a10.94 10.94 0 015.74 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.36-5.25 5.65.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card flip-card" style="animation-delay: 0.25s" tabindex="0">
           <div class="flip-inner">
             <div class="flip-front">
               <div class="card-icon">🔍</div>
@@ -1124,7 +1217,7 @@
           </div>
         </article>
 
-        <article class="card flip-card" style="animation-delay: 0.25s" tabindex="0">
+        <article class="card flip-card" style="animation-delay: 0.35s" tabindex="0">
           <div class="flip-inner">
             <div class="flip-front">
               <div class="card-icon">📱</div>
@@ -1158,7 +1251,7 @@
           </div>
         </article>
 
-        <article class="card flip-card" style="animation-delay: 0.35s" tabindex="0">
+        <article class="card flip-card" style="animation-delay: 0.45s" tabindex="0">
           <div class="flip-inner">
             <div class="flip-front">
               <div class="card-icon">📊</div>
@@ -1291,6 +1384,8 @@ function toggleMenu() {
 const chatWindow = document.getElementById('chatWindow');
 const chatForm   = document.getElementById('chatForm');
 const chatInput  = document.getElementById('chatInput');
+const chatSendButton = chatForm.querySelector('.send-btn');
+const chatHistory = [];
 
 function escapeHtml(str) {
   return str.replace(/[&<>"']/g, c => ({
@@ -1311,22 +1406,22 @@ function appendMessage(role, html, { typing = false } = {}) {
   return wrap;
 }
 
-// hardcoded placeholder responses - replace with Groq later
+// Local fallback for opening index.html directly without Vercel.
 const CANNED = {
   skills: "Sankalp's stack:\n\n• Languages - Python, TypeScript/JS, Java, C/C++\n• Backend - Node.js, FastAPI, Flask, REST APIs\n• Data - PostgreSQL (pgvector), Redis, MongoDB, Kafka\n• AI - RAG, embeddings, reranking, LangChain, Pinecone\n• Cloud - AWS, GCP (Cloud Run), Docker, GitHub Actions",
-  projects: "Three to highlight:\n\n🔍 SafeBot - investigation platform for Riverside PD with LLM risk scoring (in pilot).\n📊 Test Device Recommendation Engine - TF-IDF over 125K log lines, sub-90s selection.\n📱 Android Log Search Utility - published in IJAET, London 2024.\n\nCheck the Achievements tab for full details.",
+  projects: "Projects to highlight:\n\n🧠 Sage - local-first multi-agent assistant. GitHub: https://github.com/sankalpkulk06/personal-agent\n🔎 Fandom Wiki Search Engine - CS242 information retrieval project for searching Fandom wikis. GitHub: https://github.com/sankalpkulk06/fandom-search-engine\n🔍 SafeBot - investigation platform for Riverside PD with LLM risk scoring.\n📊 Test Device Recommendation Engine - TF-IDF over 125K log lines, sub-90s selection.\n\nCheck the Achievements tab for full details.",
   experience: "Sankalp's journey so far:\n\n🚀 Stealth Physical AI Startup (Feb 2026 → now) - Backend / AI\n⚙️ Quinnox / Qyrus (2025) - AI Engineer Intern, Chicago\n🛠️ Pcloudy / Opkey (2023–24) - SWE Intern, Bangalore\n\nSwitch to Achievements for the full breakdown.",
   education: "🎓 MS Computer Science - UC Riverside (2024–2026), GPA 3.81 / 4.0\n🎓 BTech CS (ML & Data Science) - PES University, Bangalore (2020–2024), GPA 8.3 / 10",
   contact: "Best ways to reach Sankalp:\n\n• Email - sankalpkulk06@gmail.com\n• LinkedIn & GitHub linked at the bottom of Achievements\n• Based in Riverside, CA · open to SWE / AI Engineer roles",
   hello: "Hey 👋 happy to chat about Sankalp's work. Try asking about his projects, skills, or where he's worked - or hit one of the chips above.",
-  default: "I'm a placeholder for now - Groq integration is wired in the code (see TODO). For real answers try one of the suggested questions above, or check the Achievements tab for the full picture."
+  default: "I can answer best from Sankalp's portfolio context. Try asking about his backend work, AI projects, skills, education, or contact details."
 };
 
 function fakeBotReply(userText) {
   const t = userText.toLowerCase();
   if (/\b(hi|hello|hey|yo|sup)\b/.test(t)) return CANNED.hello;
   if (/skill|stack|tech|language|tool/.test(t))    return CANNED.skills;
-  if (/project|build|built|safebot|recommend/.test(t)) return CANNED.projects;
+  if (/project|build|built|safebot|recommend|sage|fandom|wiki|search/.test(t)) return CANNED.projects;
   if (/work|experience|job|intern|company|where/.test(t)) return CANNED.experience;
   if (/educat|school|university|degree|gpa|ucr|pes/.test(t)) return CANNED.education;
   if (/contact|email|reach|hire|linkedin|github/.test(t)) return CANNED.contact;
@@ -1334,34 +1429,47 @@ function fakeBotReply(userText) {
 }
 
 async function sendMessage(text) {
-  if (!text.trim()) return;
-  appendMessage('user', escapeHtml(text));
+  const userText = text.trim();
+  if (!userText) return;
+
+  appendMessage('user', escapeHtml(userText));
+  chatHistory.push({ role: 'user', content: userText });
   chatInput.value = '';
+  chatInput.disabled = true;
+  chatSendButton.disabled = true;
 
   const typingNode = appendMessage('bot', '', { typing: true });
 
-  // ===== TODO: Connect Groq API here =====
-  // Replace the setTimeout block below with a call like:
-  // const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-  //   method: 'POST',
-  //   headers: { 'Authorization': `Bearer ${GROQ_KEY}`, 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({
-  //     model: 'llama-3.3-70b-versatile',
-  //     messages: [
-  //       { role: 'system', content: SANKALP_SYSTEM_PROMPT },
-  //       { role: 'user', content: text }
-  //     ]
-  //   })
-  // });
-  // const data = await res.json();
-  // const reply = data.choices[0].message.content;
-  // ========================================
+  try {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: userText,
+        history: chatHistory.slice(-8, -1),
+      }),
+    });
 
-  setTimeout(() => {
-    const reply = fakeBotReply(text);
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.error || 'Chat request failed');
+    }
+
+    const reply = data.reply || CANNED.default;
+    chatHistory.push({ role: 'assistant', content: reply });
     typingNode.querySelector('.bubble').innerHTML = escapeHtml(reply).replace(/\n/g, '<br>');
+  } catch (error) {
+    const reply = window.location.protocol === 'file:'
+      ? fakeBotReply(userText)
+      : "I couldn't reach the portfolio AI right now. Please check that the Vercel serverless function is deployed and GROQ_API_KEY is set.";
+    chatHistory.push({ role: 'assistant', content: reply });
+    typingNode.querySelector('.bubble').innerHTML = escapeHtml(reply).replace(/\n/g, '<br>');
+  } finally {
+    chatInput.disabled = false;
+    chatSendButton.disabled = false;
+    chatInput.focus();
     chatWindow.scrollTop = chatWindow.scrollHeight;
-  }, 700 + Math.random() * 500);
+  }
 }
 
 chatForm.addEventListener('submit', (e) => {
@@ -1387,6 +1495,7 @@ document.addEventListener('click', (e) => {
     closeBtn.closest('.flip-card').classList.remove('flipped');
     return;
   }
+  if (e.target.closest('a')?.closest('.flip-card')) return;
   // toggle on card click
   const card = e.target.closest('.flip-card');
   if (!card) return;

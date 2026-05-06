@@ -1047,12 +1047,18 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 12px;
   }
-  .modal-grid image-slot {
+  .coming-soon-slot {
     width: 100%;
     aspect-ratio: 4/5;
-    --slot-bg: rgba(255,255,255,0.025);
-    --slot-border: rgba(255,255,255,0.08);
-    --slot-color: var(--ink-3);
+    border-radius: 12px;
+    background: rgba(124, 58, 237, 0.04);
+    border: 1px dashed rgba(124, 58, 237, 0.25);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 10px;
+    color: var(--ink-3);
+    font-size: 11.5px; font-weight: 500;
+    letter-spacing: 1.2px; text-transform: uppercase;
   }
 
   @media (max-width: 720px) {
@@ -1275,13 +1281,13 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         Chat
       </button>
-      <button class="nav-link" data-page="travel" onclick="setPage('travel')">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        Travel
-      </button>
       <button class="nav-link" data-page="achievements" onclick="setPage('achievements')">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
         Achievements
+      </button>
+      <button class="nav-link" data-page="travel" onclick="setPage('travel')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Travel
       </button>
     </div>
   </div>
@@ -1316,7 +1322,7 @@
           </button>
         </form>
 
-        <div class="micro-foot">Replies use a Vercel serverless function · <code>GROQ_API_KEY</code> stays server-side</div>
+        <!-- <div class="micro-foot">Replies use a Vercel serverless function · <code>GROQ_API_KEY</code> stays server-side</div> -->
       </div>
     </div>
   </section>
@@ -1354,26 +1360,25 @@
               </div>
               <h3>Stealth Startup</h3>
               <div class="role">Software Developer Intern <span class="pin">· AI / Backend · Remote</span></div>
-              <p class="desc">Building semantic role classification with PostgreSQL <code>pgvector</code> hitting 95% accuracy mapping titles to ~900 O*NET occupations. Shipping Node.js REST APIs for AI-driven onboarding.</p>
+              <p class="desc">Built 9 personalized tool-calling agents and a pgvector semantic classifier across ~900 O*NET occupations. Shipped 20+ REST APIs, a React Native app on TestFlight, and LLM eval harnesses to catch prompt regressions.</p>
               <div class="tags">
-                <span class="tag">AI</span>
-                <span class="tag cyan">Backend</span>
+                <span class="tag">AI Agents</span>
+                <span class="tag cyan">GCP</span>
                 <span class="tag violet">pgvector</span>
-                <span class="tag">Node.js</span>
+                <span class="tag">React Native</span>
               </div>
               <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>Flip</div>
             </div>
             <div class="flip-back">
               <div class="flip-back-header">
-                <div class="flip-back-title"><small>What I'm doing</small>Stealth Startup · AI Backend</div>
+                <div class="flip-back-title"><small>What I'm doing</small>Stealth Startup · AI / Backend</div>
                 <button class="flip-close" aria-label="Close"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
               </div>
               <ul>
-                <li>Designed and shipped <strong>REST API endpoints</strong> for user onboarding and profile standardization in a consumer app for physical-trade job matching.</li>
-                <li>Built a <strong>semantic role classification pipeline</strong> with pgvector and sentence embeddings mapping titles to ~900 O*NET occupations — <strong>95% accuracy</strong> in offline eval.</li>
-                <li>Chose <strong>pgvector over a standalone vector DB</strong> to reduce ops complexity and keep embeddings colocated with profile data.</li>
-                <li>Wrote <strong>PyTest unit + integration tests</strong> and added structured logging; aligned roadmap weekly with EM and founder.</li>
-                <li>Collaborated with a 2-person frontend team to define API contracts and ship against weekly milestones.</li>
+                <li>Built and shipped <strong>9 personalized tool-calling agents</strong> (onboarding, matching, classification) that adapt behavior dynamically to each user's profile and work history, backed by structured extraction pipelines with system prompts and few-shot examples.</li>
+                <li>Built <strong>pgvector-based semantic matching</strong> classifying free-form profile text against ~900 O*NET occupations — <strong>87% classification consistency</strong>, eliminating manual occupation tagging from the onboarding workflow.</li>
+                <li>Designed and shipped <strong>20+ REST APIs</strong> (14 internal services), deployed the full backend on <strong>GCP</strong>, and shipped a <strong>React Native mobile app</strong> with phone OTP auth — currently in TestFlight.</li>
+                <li>Built <strong>evaluation harnesses and regression tests</strong> for LLM outputs to catch prompt regressions across agent iterations, establishing repeatable quality baselines for AI-driven features.</li>
               </ul>
             </div>
           </div>
@@ -1458,6 +1463,49 @@
         <article class="card flip-card" style="animation-delay: 0.05s" tabindex="0">
           <div class="flip-inner">
             <div class="flip-front">
+              <a class="card-gh-link" href="https://github.com/sankalpkulk06/personal-agent" target="_blank" rel="noopener" onclick="event.stopPropagation()" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17a10.94 10.94 0 015.74 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.36-5.25 5.65.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
+              </a>
+              <div class="card-icon">🧠</div>
+              <div class="card-meta">
+                <span>2024 → Present</span>
+                <span class="badge-now">Active</span>
+              </div>
+              <h3>Sage</h3>
+              <div class="role">Local-First Personal AI Agent</div>
+              <p class="desc">Personal Agent that runs entirely on-device via Ollama (Llama 3.1, Mistral). Orchestrator Agent executes a Thought → Action → Observation loop across 8 LLM-callable tools — CLI, WhatsApp, and Web UI on one FastAPI backend. Fully private, no external API calls.</p>
+              <div class="tags">
+                <span class="tag">Ollama</span>
+                <span class="tag cyan">ChromaDB</span>
+                <span class="tag violet">FastAPI</span>
+                <span class="tag">Docker</span>
+              </div>
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>Flip</div>
+            </div>
+            <div class="flip-back">
+              <div class="flip-back-header">
+                <div class="flip-back-title"><small>Project deep-dive</small>Sage · Local-First Personal AI Agent</div>
+                <button class="flip-close" aria-label="Close"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+              </div>
+              <ul>
+                <li>Built a <strong>full-stack agentic AI assistant</strong> (10K+ lines, 60+ files) running entirely on-device via Ollama (Llama 3.1, Mistral) with ChromaDB for semantic retrieval, SQLite for persistent memory, and <strong>8 LLM-callable tools</strong> including web search, Gmail triage, and document Q&A.</li>
+                <li>Designed an <strong>Orchestrator Agent</strong> that executes a Thought → Action → Observation loop to autonomously decompose and complete multi-step goals across specialized sub-agents with <strong>no hardcoded step routing</strong>.</li>
+                <li>Shipped <strong>multi-channel access</strong> (CLI, WhatsApp via Twilio, Web UI) on the same FastAPI backend with selective RAG, proactive scheduling, and Docker deployment.</li>
+                <li>Fully <strong>private</strong> — no external LLM API calls; all models run on-device via Ollama.</li>
+              </ul>
+              <div class="flip-back-links">
+                <a class="flip-back-link" href="https://github.com/sankalpkulk06/personal-agent" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17a10.94 10.94 0 015.74 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.36-5.25 5.65.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card flip-card" style="animation-delay: 0.15s" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-front">
               <div class="card-icon">🔍</div>
               <div class="card-meta">
                 <span>Apr 2025 → Present</span>
@@ -1490,7 +1538,7 @@
           </div>
         </article>
 
-        <article class="card flip-card" style="animation-delay: 0.15s" tabindex="0">
+        <article class="card flip-card" style="animation-delay: 0.25s" tabindex="0">
           <div class="flip-inner">
             <div class="flip-front">
               <div class="card-icon">📊</div>
@@ -1520,7 +1568,7 @@
           </div>
         </article>
 
-        <article class="card flip-card" style="animation-delay: 0.25s" tabindex="0">
+        <article class="card flip-card" style="animation-delay: 0.35s" tabindex="0">
           <div class="flip-inner">
             <div class="flip-front">
               <a class="card-gh-link" href="https://drive.google.com/file/d/1SNnXSsP8_IvCsQbUIDinWG950wwDey0b/view" target="_blank" rel="noopener" onclick="event.stopPropagation()" aria-label="Read publication">
@@ -1557,50 +1605,6 @@
                 <a class="flip-back-link" href="https://drive.google.com/file/d/1SNnXSsP8_IvCsQbUIDinWG950wwDey0b/view" target="_blank" rel="noopener" onclick="event.stopPropagation()">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                   Read Paper
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="card flip-card" style="animation-delay: 0.35s" tabindex="0">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <a class="card-gh-link" href="https://github.com/sankalpkulk06/personal-agent" target="_blank" rel="noopener" onclick="event.stopPropagation()" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17a10.94 10.94 0 015.74 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.36-5.25 5.65.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
-              </a>
-              <div class="card-icon">🧠</div>
-              <div class="card-meta">
-                <span>2024 → Present</span>
-                <span class="badge-now">Active</span>
-              </div>
-              <h3>Sage</h3>
-              <div class="role">Local-first multi-agent AI assistant</div>
-              <p class="desc">Multi-agent orchestrator with RAG, persistent memory, live news, web search, WhatsApp delivery, Gmail triage, and proactive daily briefings — all running locally.</p>
-              <div class="tags">
-                <span class="tag">Ollama</span>
-                <span class="tag cyan">RAG</span>
-                <span class="tag violet">FastAPI</span>
-                <span class="tag">ChromaDB</span>
-              </div>
-              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>Flip</div>
-            </div>
-            <div class="flip-back">
-              <div class="flip-back-header">
-                <div class="flip-back-title"><small>Project deep-dive</small>Sage · Personal AI Orchestrator</div>
-                <button class="flip-close" aria-label="Close"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-              </div>
-              <ul>
-                <li><strong>Multi-agent orchestration</strong> via Ollama tool-calling — a router LLM autonomously dispatches to specialized agents (web search, news, RAG, memory, reminders, Gmail) based on intent.</li>
-                <li>Built <strong>persistent memory</strong> with ChromaDB and SQLite-backed sessions for cross-conversation context recall.</li>
-                <li><strong>WhatsApp integration</strong> via Twilio + FastAPI webhook — full chat, commands, and proactive reminder delivery with daily scheduling and missed-reminder recovery.</li>
-                <li>Fully <strong>local and private</strong> — no data leaves the machine; models run via Ollama on-device.</li>
-                <li>Modular agent architecture makes it easy to add new capabilities as plugins.</li>
-              </ul>
-              <div class="flip-back-links">
-                <a class="flip-back-link" href="https://github.com/sankalpkulk06/personal-agent" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17a10.94 10.94 0 015.74 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.36-5.25 5.65.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
-                  GitHub
                 </a>
               </div>
             </div>
@@ -1750,7 +1754,7 @@
       <header class="travel-header">
         <div>
           <h1 class="travel-title">Places I've <span class="grad">wandered</span></h1>
-          <p class="travel-sub">Eight countries, three continents. Tap a glowing country to see photos. <span class="ach-hint">Drag images onto the slots to fill them →</span></p>
+          <p class="travel-sub">Eight countries, three continents. Tap a glowing country to see photos.</p>
         </div>
         <div class="travel-stats">
           <div class="stat"><div class="stat-num">8</div><div class="stat-lbl">Countries</div></div>
@@ -2188,14 +2192,13 @@ function openCountryModal(id, opts) {
 
   const grid = document.getElementById('modalGrid');
   grid.innerHTML = '';
-  const slug = c.name.toLowerCase().replace(/\s+/g, '-');
   for (let i = 1; i <= c.count; i++) {
-    const slot = document.createElement('image-slot');
-    slot.setAttribute('id', `travel-${slug}-${i}`);
-    slot.setAttribute('shape', 'rounded');
-    slot.setAttribute('radius', '12');
-    slot.setAttribute('placeholder', `${c.name} · photo ${i}`);
-    grid.appendChild(slot);
+    const div = document.createElement('div');
+    div.className = 'coming-soon-slot';
+    div.innerHTML = `
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span>Coming Soon</span>`;
+    grid.appendChild(div);
   }
 
   const modal = document.getElementById('travelModal');

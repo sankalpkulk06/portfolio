@@ -1256,6 +1256,29 @@
     .ach-shell { padding: 36px 18px 60px; }
   }
 
+  /* chat contact bar */
+  .chat-contact-bar {
+    display: flex; align-items: center; justify-content: center;
+    gap: 12px; flex-wrap: wrap;
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-pill);
+  }
+  .chat-contact-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--ink-2); text-decoration: none;
+    font-size: 12.5px; font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  .chat-contact-link:hover { color: var(--accent-2); }
+  .chat-contact-sep {
+    width: 1px; height: 14px;
+    background: var(--glass-border-strong);
+    flex-shrink: 0;
+  }
+
   /* footer micro */
   .micro-foot {
     text-align: center; font-size: 11.5px; color: var(--ink-3);
@@ -1336,7 +1359,22 @@
           </button>
         </form>
 
-        <!-- <div class="micro-foot">Replies use a Vercel serverless function · <code>GROQ_API_KEY</code> stays server-side</div> -->
+        <div class="chat-contact-bar">
+          <a class="chat-contact-link" href="mailto:sankalpkulk06@gmail.com">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email
+          </a>
+          <span class="chat-contact-sep"></span>
+          <a class="chat-contact-link" href="https://www.linkedin.com/in/sankalpkulkarni/" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+            LinkedIn
+          </a>
+          <span class="chat-contact-sep"></span>
+          <a class="chat-contact-link" href="https://github.com/sankalpkulk06" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17a10.94 10.94 0 015.74 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.36-5.25 5.65.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
+            GitHub
+          </a>
+        </div>
       </div>
     </div>
   </section>

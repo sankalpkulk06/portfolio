@@ -337,14 +337,14 @@
     padding: 56px 28px 80px;
   }
   .ach-header {
-    display: flex; align-items: end; justify-content: space-between;
-    flex-wrap: wrap; gap: 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: nowrap; gap: 32px;
     margin-bottom: 48px;
     animation: rise 0.7s ease both;
   }
   .ach-header-main {
     display: flex; align-items: center; gap: 22px;
-    min-width: 0;
+    min-width: 0; flex: 1;
   }
   .ach-photo {
     width: 96px; height: 96px;
@@ -401,22 +401,36 @@
     max-width: 560px;
   }
   .ach-stats {
-    display: flex; gap: 20px;
+    display: flex; align-items: stretch; gap: 0;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border-strong);
+    border-radius: var(--radius-md);
+    padding: 0;
+    overflow: hidden;
+    flex-shrink: 0;
   }
   .stat {
-    text-align: right;
-    min-width: 0;
+    text-align: center;
+    padding: 18px 28px;
+    flex: 1;
+    position: relative;
+  }
+  .stat + .stat::before {
+    content: "";
+    position: absolute; left: 0; top: 20%; bottom: 20%;
+    width: 1px;
+    background: var(--glass-border-strong);
   }
   .stat-num {
-    font-size: 28px; font-weight: 700;
+    font-size: 26px; font-weight: 700;
     background: var(--grad);
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 1;
   }
   .stat-lbl {
-    font-size: 11px; color: var(--ink-2); text-transform: uppercase;
-    letter-spacing: 1px; margin-top: 4px;
+    font-size: 10px; color: var(--ink-2); text-transform: uppercase;
+    letter-spacing: 1.5px; margin-top: 6px; font-weight: 500;
   }
 
   .section-label {
@@ -1231,9 +1245,9 @@
       opacity: 1; pointer-events: auto;
     }
     .nav-link { width: 100%; justify-content: flex-start; }
-    .ach-header { flex-direction: column; align-items: start; }
-    .ach-stats { gap: 28px; }
-    .stat { text-align: left; }
+    .ach-header { flex-wrap: wrap; }
+    .ach-stats { width: 100%; }
+    .stat { text-align: center; }
     .contact { flex-direction: column; align-items: stretch; text-align: left; }
     .grid, .grid.edu { grid-template-columns: 1fr; }
     .chat-shell { padding: 20px 16px; }
@@ -1341,8 +1355,8 @@
           </div>
         </div>
         <div class="ach-stats">
-          <div class="stat"><div class="stat-num">3+</div><div class="stat-lbl">Years</div></div>
-          <div class="stat"><div class="stat-num">220K+</div><div class="stat-lbl">Embeddings</div></div>
+          <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">Internships</div></div>
+          <div class="stat"><div class="stat-num">1</div><div class="stat-lbl">Publication</div></div>
           <div class="stat"><div class="stat-num">3.81</div><div class="stat-lbl">GPA</div></div>
         </div>
       </header>
@@ -1884,7 +1898,8 @@ function formatBotReply(text) {
   return text
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/\n/g, '<br>')
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/(https?:\/\/[^\s<,)]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:underline;text-underline-offset:3px;">$1</a>');
 }
 
 const chatHistory = [];

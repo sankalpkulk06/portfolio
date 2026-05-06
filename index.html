@@ -1933,11 +1933,27 @@ function fakeBotReply(userText) {
 }
 
 function formatBotReply(text) {
-  return text
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(/\n/g, '<br>')
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/(https?:\/\/[^\s<,)]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:underline;text-underline-offset:3px;">$1</a>');
+  // escape HTML first
+  let out = text
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+  // convert markdown bullet lines (* item, - item, + item, • item) to styled bullets
+  out = out.replace(/^[ \t]*[\*\-\+•][ \t]+(.+)$/gm,
+    '<div style="display:flex;gap:8px;align-items:baseline;margin:3px 0;">' +
+    '<span style="flex-shrink:0;width:6px;height:6px;border-radius:2px;background:var(--accent-1);display:inline-block;margin-top:6px;"></span>' +
+    '<span>$1</span></div>');
+
+  // bold
+  out = out.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+  // links
+  out = out.replace(/(https?:\/\/[^\s<,)&]+)/g,
+    '<a href="$1" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:underline;text-underline-offset:3px;">$1</a>');
+
+  // newlines
+  out = out.replace(/\n/g, '<br>');
+
+  return out;
 }
 
 const chatHistory = [];

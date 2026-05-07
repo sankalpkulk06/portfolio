@@ -869,7 +869,7 @@
   #worldMap .country-hit {
     fill: rgba(0,0,0,0);
     stroke: rgba(0,0,0,0);
-    stroke-width: 10;
+    stroke-width: 3;
     cursor: pointer;
     pointer-events: all;
   }
@@ -1074,6 +1074,22 @@
     font-size: 11.5px; font-weight: 500;
     letter-spacing: 1.2px; text-transform: uppercase;
   }
+  .modal-photo {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border-strong);
+    background: rgba(255,255,255,0.03);
+    cursor: zoom-in;
+  }
+  .modal-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .modal-photo:hover img { transform: scale(1.04); }
 
   @media (max-width: 720px) {
     .travel-title { font-size: 32px; }
@@ -2053,14 +2069,14 @@ window.addEventListener('DOMContentLoaded', () => {
    TRAVEL PAGE — Robinson world map
    ========================================================= */
 const VISITED = {
-  840: { name: "United States", flag: "🇺🇸", caption: "Riverside, the West Coast, and a few road trips in between.", count: 4 },
-  356: { name: "India",         flag: "🇮🇳", caption: "Home — Bangalore, Mumbai, and the long train rides up north.", count: 4 },
-  250: { name: "France",        flag: "🇫🇷", caption: "Paris in the rain. Croissants, the Seine, and too many museums.", count: 4 },
-  380: { name: "Italy",         flag: "🇮🇹", caption: "Rome, Florence, Venice — the classic loop, slow espresso edition.", count: 4 },
-  756: { name: "Switzerland",   flag: "🇨🇭", caption: "Mountains taller than reasonable. Trains that run on time.", count: 4 },
-  528: { name: "Netherlands",   flag: "🇳🇱", caption: "Amsterdam by bike, canals at golden hour.", count: 4 },
-  276: { name: "Germany",       flag: "🇩🇪", caption: "Berlin's energy. Bavarian beer halls. Black Forest detours.", count: 3 },
-  40:  { name: "Austria",       flag: "🇦🇹", caption: "Vienna's coffeehouses, Salzburg's old town, Alps everywhere.", count: 3 },
+  840: { name: "United States", flag: "🇺🇸", caption: "Riverside, the West Coast, and a few road trips in between.", photos: ["assets/usa/usa_1.jpg","assets/usa/usa_2.JPG","assets/usa/usa_3.jpg","assets/usa/usa_4.jpg"] },
+  356: { name: "India",         flag: "🇮🇳", caption: "Home — Bangalore, Mumbai, and the long train rides up north.", photos: ["assets/india/goa_india.jpg"] },
+  250: { name: "France",        flag: "🇫🇷", caption: "Paris in the rain. Croissants, the Seine, and too many museums.", photos: ["assets/france/france_1.JPG","assets/france/france_2.JPG"] },
+  380: { name: "Italy",         flag: "🇮🇹", caption: "Rome, Florence, Venice — the classic loop, slow espresso edition.", photos: ["assets/italy/italy_1.JPG","assets/italy/italy_2.JPG"] },
+  756: { name: "Switzerland",   flag: "🇨🇭", caption: "Mountains taller than reasonable. Trains that run on time.", photos: ["assets/switzerland/switzerland_1.JPG"] },
+  528: { name: "Netherlands",   flag: "🇳🇱", caption: "Amsterdam by bike, canals at golden hour.", photos: ["assets/netherlands/netherlands_1.jpg","assets/netherlands/netherlands_2.jpg","assets/netherlands/netherlands_3.jpg","assets/netherlands/netherlands_4.jpg","assets/netherlands/netherlands_5.JPG"] },
+  276: { name: "Germany",       flag: "🇩🇪", caption: "Berlin's energy. Bavarian beer halls. Black Forest detours.", photos: ["assets/germany/germany_1.jpg","assets/germany/germany_2.JPG"] },
+  40:  { name: "Austria",       flag: "🇦🇹", caption: "Vienna's coffeehouses, Salzburg's old town, Alps everywhere.", photos: ["assets/austria/austria_1.jpg"] },
 };
 
 let mapRendered = false;
@@ -2188,6 +2204,7 @@ async function renderWorldMap() {
         g.selectAll('.country.visited').style('stroke-width', 0.9 / event.transform.k);
         g.selectAll('.graticule').style('stroke-width', 0.4 / event.transform.k);
         g.selectAll('.sphere').style('stroke-width', 0.6 / event.transform.k);
+        g.selectAll('.country-hit').style('stroke-width', 3 / event.transform.k);
       });
     svg.call(zoom);
 
@@ -2212,7 +2229,7 @@ async function renderWorldMap() {
 
 function showTooltip(event, c) {
   const tip = document.getElementById('mapTooltip');
-  tip.innerHTML = `<span class="flag">${c.flag}</span>${c.name}<small>${c.count} photos · click to open</small>`;
+  tip.innerHTML = `<span class="flag">${c.flag}</span>${c.name}<small>${(c.photos||[]).length} photos · click to open</small>`;
   tip.classList.add('visible');
   moveTooltip(event);
 }
@@ -2261,14 +2278,16 @@ function openCountryModal(id, opts) {
 
   const grid = document.getElementById('modalGrid');
   grid.innerHTML = '';
-  for (let i = 1; i <= c.count; i++) {
+  (c.photos || []).forEach(src => {
     const div = document.createElement('div');
-    div.className = 'coming-soon-slot';
-    div.innerHTML = `
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      <span>Coming Soon</span>`;
+    div.className = 'modal-photo';
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = c.name;
+    img.loading = 'lazy';
+    div.appendChild(img);
     grid.appendChild(div);
-  }
+  });
 
   const modal = document.getElementById('travelModal');
   modal.classList.add('open');
